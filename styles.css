@@ -40,6 +40,11 @@ body {
     min-width: 50%;
     padding: 0;
     pointer-events: auto;
+
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
 }
 
 .col-md-6 .front,
