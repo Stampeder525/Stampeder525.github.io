@@ -97,7 +97,7 @@ h2 {
 }
 
 .propic .front {
-    background-image: url("linkedin_propic.jpg");
+    background-image: url("img/linkedin_propic.jpg");
 }
 
 .propic .back {
@@ -105,7 +105,7 @@ h2 {
 }
 
 .skills .front {
-    background-image: url("steampunk.jpg");
+    background-image: url("img/steampunk.jpg");
 }
 
 .skills .back {
@@ -113,7 +113,7 @@ h2 {
 }
 
 .experience .front {
-    background-image: url("night.jpg");
+    background-image: url("img/night.jpg");
 }
 
 .experience .back {
@@ -121,7 +121,7 @@ h2 {
 }
 
 .education .front {
-    background-image: url("urban.jpg");
+    background-image: url("img/urban.jpg");
 }
 
 .education .back {
