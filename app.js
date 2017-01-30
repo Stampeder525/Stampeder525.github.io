@@ -14,4 +14,16 @@ $( document ).ready(function(){
         }
     });
 
+    $(window).resize(function(){
+            if ($(window).innerWidth() <= 768) {
+                $('.propic').detach().insertBefore('.skills');
+                $('.experience').detach().insertBefore('.education');
+            }
+
+            if ($(window).innerWidth() >= 768) {
+                $('.propic').detach().insertAfter('.education');
+                $('.experience').detach().insertAfter('.skills');
+            }
+    });
+
 });
