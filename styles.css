@@ -1,0 +1,329 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.row {
+    height: 50%;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    pointer-events: none;
+}
+
+.container-fluid {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.col-xs-12,
+.col-sm-12,
+.col-md-6,
+.col-lg-6 {
+    min-height: 100%;
+    min-width: 50%;
+    padding: 0;
+    pointer-events: auto;
+}
+
+.col-md-6 .front,
+.col-xs-12 .front,
+.col-sm-12 .front,
+.col-lg-6 .front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 10px white;
+    -moz-box-shadow: inset 0px 0px 10px white;
+    -webkit-box-shadow: inset 0px 0px 10px white;
+    -o-transition: box-shadow .2s ease-out, box-shadow .1s ease-in;
+    -ms-transition: box-shadow .2s ease-out, box-shadow .1s ease-in;
+    -moz-transition: box-shadow .2s ease-out, box-shadow .1s ease-in;
+    -webkit-transition: box-shadow .2s ease-out, box-shadow .1s ease-in;
+    transition: box-shadow .2s ease-out, box-shadow .1s ease-in;
+    text-align: center;
+}
+
+.col-md-6 .front:hover,
+.col-xs-12 .front:hover,
+.col-sm-12 .front:hover,
+.col-lg-6 .front:hover {
+    box-shadow: inset 0px 0px 120px white;
+    -moz-box-shadow: inset 0px 0px 120px white;
+    -webkit-box-shadow: inset 0px 0px 120px white;
+    background-color: darkgrey;
+}
+
+.scrollbar {
+    float: right;
+    height: inherit;
+    width: inherit;
+    overflow-y: auto;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #0ae;
+}
+
+h2 {
+    font-weight: bolder;
+}
+
+.propic .front {
+    background-image: url("linkedin_propic.jpg");
+}
+
+.propic .back {
+    background-color: #B5B2AB;
+}
+
+.skills .front {
+    background-image: url("steampunk.jpg");
+}
+
+.skills .back {
+    background-color: #B0C4BA;
+}
+
+.experience .front {
+    background-image: url("night.jpg");
+}
+
+.experience .back {
+    background-color: #AAD9FF;
+}
+
+.education .front {
+    background-image: url("urban.jpg");
+}
+
+.education .back {
+    background-color: #C6AFA7;
+}
+
+.propic a {
+    font-size: 12px;
+    height: 100%;
+    width: 100%;
+}
+
+.work,
+.proj {
+    float: left;
+}
+
+.exp-img {
+    float: right;
+    position: relative;
+    border: 2px solid white;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 25%;
+    margin-top: 3%;
+    margin-right: 2%;
+}
+
+.exp-img img {
+    width: 100%;
+    float: right;
+}
+
+.exp-content {
+    position: relative;
+    width: 70%;
+}
+
+.projects,
+.work,
+.educ,
+.about,
+.skill {
+    margin-left: 35px;
+}
+
+li {
+    list-style-type: none;
+    /* removes default bullet */
+    position: relative;
+    /* positioning context for bullet */
+}
+
+li:before {
+    content: "\2219";
+    /* escaped unicode character */
+    font-size: 2.5em;
+    /* the default unicode bullet size is very small */
+    line-height: 0;
+    /* kills huge line height on resized bullet */
+    position: absolute;
+    /* position bullet relative to list item */
+    top: .23em;
+    /* vertical align bullet position relative to list item */
+    left: -.5em;
+    /* position the bullet L- R relative to list item */
+}
+
+.skill {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+span {
+    font-weight: bold;
+}
+
+.text-glow {
+    -webkit-transition: text-shadow 500ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: text-shadow 500ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: text-shadow 500ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: text-shadow 500ms cubic-bezier(0.42, 0, 0.58, 1);
+    text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
+}
+
+.hover-text {
+    color: white;
+    font-size: 9vw;
+    text-align: center;
+    margin-top: 20vh;
+    font-family: "Century Gothic";
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    position: relative;
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.flip-container {
+    perspective: 100vw;
+    -webkit-perspective: 100vw;
+    -moz-perspective: 100vw;
+    -o-perspective: 100vw;
+}
+
+.flip-container.flip .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flip-container,
+.flipper,
+.front,
+.back {
+    height: 50vh;
+    width: 100%;
+}
+
+.flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.front,
+.back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    box-shadow: inset 0px 0px 10px white;
+    -moz-box-shadow: inset 0px 0px 10px white;
+    -webkit-box-shadow: inset 0px 0px 10px white;
+}
+
+@media (min-width: 767px) {
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+}
+
+@media (min-width: 600px) {
+    .hover-text {
+        font-size: 6vw;
+    }
+}
+
+@media (min-width: 800px) {
+    .hover-text {
+        font-size: 5vw;
+    }
+}
+
+@media (min-width: 1000px) {
+    .hover-text {
+        font-size: 4vw;
+    }
+}
+
+@media (min-width: 1300px) {
+    .hover-text {
+        font-size: 3.5vw;
+    }
+}
+
+@media (min-width: 1800px) {
+    .hover-text {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width: 2000px) {
+    .hover-text {
+        font-size: 2.5vw;
+    }
+}
