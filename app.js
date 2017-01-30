@@ -27,4 +27,8 @@ $( document ).ready(function(){
             }
     });
 
+    $('a').on('click touchstart', function(){
+        $(this).closest('.flip-container').removeClass('flip');
+    });
+
 });
