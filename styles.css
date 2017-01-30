@@ -4,7 +4,7 @@ body {
 }
 
 body {
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -291,8 +291,12 @@ span {
 }
 
 @media (min-width: 767px) {
-    body {
+    .container-fluid .scrollbar {
         overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .back .scrollbar{
+        overflow-y: auto;
         overflow-x: hidden;
     }
 }
