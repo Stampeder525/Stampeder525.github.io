@@ -305,6 +305,10 @@ span {
         overflow-x: hidden;
     }
 
+    .scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
 
 }
 
