@@ -17,6 +17,7 @@ $( document ).ready(function(){
 
     $(window).resize(function(){
             if ($(window).innerWidth() <= 768) {
+                console.log("Switching up the order")
                 $('.propic').detach().insertBefore('.skills');
                 $('.experience').detach().insertBefore('.education');
             }
