@@ -81,6 +81,7 @@ body {
     height: inherit;
     width: inherit;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -301,9 +302,6 @@ span {
     }
     .back .scrollbar{
         overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .scrollbar {
         overflow-x: hidden;
     }
 
