@@ -287,6 +287,10 @@ span {
     -webkit-box-shadow: inset 0px 0px 10px white;
 }
 
+.loren-details {
+    margin-bottom: 0.75rem;
+}
+
 @media (min-width: 767px) {
     .container-fluid .scrollbar {
         overflow-y: hidden;
