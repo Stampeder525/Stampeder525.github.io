@@ -304,36 +304,36 @@ span {
 
 @media (min-width: 600px) {
     .hover-text {
-        font-size: 6vw;
+        font-size: 5vw;
     }
 }
 
 @media (min-width: 800px) {
     .hover-text {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 }
 
 @media (min-width: 1000px) {
     .hover-text {
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
 }
 
 @media (min-width: 1300px) {
     .hover-text {
-        font-size: 3.5vw;
+        font-size: 3vw;
     }
 }
 
 @media (min-width: 1800px) {
     .hover-text {
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 }
 
 @media (min-width: 2000px) {
     .hover-text {
-        font-size: 2.5vw;
+        font-size: 2vw;
     }
 }
