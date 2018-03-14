@@ -180,12 +180,11 @@ h2 {
 li {
     list-style-type: none;
     /* removes default bullet */
-    position: relative;
-    /* positioning context for bullet */
 }
 
 ul {
     list-style-type: none;
+    padding-left: none;
 }
 
 li:before {
