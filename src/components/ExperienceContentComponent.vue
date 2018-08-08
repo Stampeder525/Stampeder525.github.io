@@ -15,7 +15,7 @@
                                 <a v-bind:href="j.url" target="_blank" rel="noopener"><h1 class="companyName">{{j.company}}</h1></a>
                             </div>
                         </div>
-                        <div class="ui six wide column">
+                        <div class="jobDetails ui six wide column">
                             <div class="ui list">
                                 <div class="item">
                                     <i class="id badge outline icon"></i>
@@ -180,6 +180,10 @@ export default {
     .four.wide.column {
         height: 100%;
     }
+}
+
+.jobDetails {
+    margin-left: 2%;
 }
 
 .employmentStatus {

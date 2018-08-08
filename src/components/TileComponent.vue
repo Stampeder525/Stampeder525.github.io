@@ -1,7 +1,7 @@
 <!-- TileComponent.vue -->
 <template>
 
-<div class="tile" v-bind:style="{backgroundColor: tileSelected ? color :  'transparent', borderColor: color}" v-bind:class="{ tileDetails: tileSelected }" v-on:click="toggleFrontBack()">
+<div class="tile" v-bind:style="{backgroundColor: tileSelected ? color :  'transparent', cursor: tileSelected ? 'default':'pointer', borderColor: color}" v-bind:class="{ tileDetails: tileSelected }" v-on:click="toggleFrontBack()">
     <div class="banner">
         <h1 class="title" v-bind:style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
         <div class="tileContent">
@@ -9,6 +9,13 @@
             <experience-content-component v-if="name == 'Where I work'"></experience-content-component>
             <projects-content-component v-if="name == 'What I\'ve made'"></projects-content-component>
             <about-content-component v-if="name == 'Who I am'"></about-content-component>
+        </div>
+        <div v-if="tileSelected" class="footer">
+            <div class="ui centered grid">
+                <div class="ui six wide centered column helpMessage">
+                    <p class="footerText">Click anywhere to return</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -59,7 +66,7 @@ export default {
     position: absolute;
     width:100vw;
     height: 25vh;
-    border: 2em solid;
+    //border: 2em solid;
 
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
@@ -86,6 +93,16 @@ export default {
 
 }
 
+.tile:not(.tileDetails):hover {
+    //border: 2px solid;
+
+    background-color: rgb(240, 239, 239) !important;
+    h1 {
+        font-weight: bolder !important;
+        opacity: 100 !important;
+    }
+}
+
 .tileDetails {
     position: absolute;
     z-index: 2;
@@ -93,7 +110,7 @@ export default {
     left: 0 !important;
     width:100vw;
     height: 100vh;
-    border: none;
+    //border: none;
 
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
