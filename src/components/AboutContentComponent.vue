@@ -1,0 +1,210 @@
+<template>
+    <div class="ui container">
+        <clazy-load v-bind:src="splashImg">
+            <div class="ui left floated image">
+                <img class="splash" v-bind:src="splashImg">
+            </div>
+            <div slot="placeholder"><i class="notched circle loading icon"></i></div>
+        </clazy-load>
+        <div class="ui grid">
+            <div class="row descriptorRow">
+                <div class="ui right floated ten wide column">
+                    <div class="descriptors">
+                        <h2 v-for="d in descriptors" :key="d">{{ d }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row aboutme">
+                <div class="ui right floated ten wide column">
+                    <p v-html="p" v-for="p in description" :key="p" v-on:click.stop>{{ p }}</p>
+                </div>
+            </div>
+            <div class="contact row">
+                <div class="ui right floated ten wide column">
+                    <h3>Get in touch</h3>
+                    <form class="ui small form" v-on:click.stop>
+                        <div class="required field" style="display:inline-block;">
+                            <label>Name</label>
+                            <input name="name" placeholder="Name" type="text">
+                        </div>
+                        <div class="required field" style="display:inline-block;">
+                            <label>Email</label>
+                            <input name="email" placeholder="Email" type="text">
+                        </div>
+                        <div class="required field">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="Message" rows="2"></textarea>
+                        </div>
+                        <div class="ui success message">
+                            <div class="header">Message Sent!</div>
+                        </div>
+                        <div class="ui submit button" v-on:click="onSubmit($event)">Submit</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "AboutContentComponent",
+    data() {
+        return {
+            splashImg: "/src/assets/images/about/loren_r.png",
+            descriptors: [
+                "Programmer.",
+                "Designer.",
+                "Game Developer.",
+                "Innovator."
+            ],
+            links: [
+                {
+                    name: "Github",
+                    icon: "fa-github",
+                    url: ""
+                },
+                {
+                    name: "Linkedin",
+                    icon: "fa-linkedin",
+                    url: ""
+                }
+            ],
+            description: ["Hi there! I'm a student at the University of Michigan pursuing a Bachelor's \
+                          degree in Information Science with a concentration in User Experience, minoring in \
+                          Computer Science. I'm graduating in December 2018.", "I'm a strong believer in holistically \
+                          knowing your products from blueprint to market — to understand not just the back end infrastructure, \
+                          but the space it occupies. How will people use this? Why? How will it work, how will it look, and \
+                          what implications will it have for the people who use it?", "When I'm not coding, you can find me \
+                          hiking, gaming, or writing for <a href=\"http://everythreeweekly.com/\" \
+                          rel=\"noopener\" target=\"_blank\" style=\"color: white; text-decoration: underline\">my school's satire newspaper.</a>"
+                          ],
+            contact: {
+                name: "",
+                email: "",
+                message: ""
+            },
+            isSending: false
+        }
+    },
+    methods: {
+        clearForm() {
+			for (let field in this.contact) {
+				this.contact[field] = ''
+			}
+        },
+        
+        onSubmit(event) {
+			event.preventDefault();
+			this.isSending = true;
+
+			setTimeout(() => {
+				let form = new FormData();
+				for (let field in this.contact) {
+					form.append(field, this.contact[field]);
+				}
+				this.$http.post('/src/email.php', form).then((response) => {
+					console.log(response);
+					this.clearForm();
+					this.isSending = false;
+				}).catch((e) => {
+					console.log(e)
+				});
+
+			}, 1000);
+		}
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=family=Open+Sans:300');
+
+
+.container {
+    width: 93%;
+    height: 85vh;
+}
+
+.splash, .ui.left.floated.image {
+    margin: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.ui.left.floated.image {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.descriptors {
+    width: 100%;
+    margin-bottom: 2%;
+
+    h2 {
+        font-size: 2.3em;
+        color: white;
+        display: inline-block;
+        padding-right: 0.5em;
+        z-index: 2;
+    }
+}
+
+.aboutme {
+    padding-top: 0 !important;
+}
+
+.descriptorRow {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+h2 {
+    margin: 0;
+}
+
+p {
+    font-size: 1.4em;
+}
+
+p, label {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 0 !important;
+}
+
+.grid {
+    margin-left: 0;
+}
+
+.ui.left.floated.ten.wide.column {
+   padding-left: 0;
+   margin-bottom: 0.5em;
+}
+
+.row {
+    padding-bottom: 0;
+}
+.form {
+    width: 65%;
+    label {
+        color: white !important;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+.contact {
+    margin-top: 2em;
+    margin-bottom: 3em !important;
+}
+
+@media (min-width: 768px) {
+
+}
+
+
+
+</style>
