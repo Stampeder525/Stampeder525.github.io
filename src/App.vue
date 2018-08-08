@@ -7,12 +7,21 @@
       </div>
     </div>
     <div class="footer">
-        <i v-bind:class="[($mq === 'sm') ? 'large icons' : 'huge icons']">
-            <a href="https://github.com/Stampeder525" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
-            <a  href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
-        </i>
+        <div class="ui equal width grid">
+          <div class="ui left floated column credits">
+            <p class="footerText">Loren Heubert-Aubry ©</p>
+          </div>
+          <div class="ui column helpMessage">
+            <p class="footerText">Click on a tile to expand</p>
+          </div>
+          <div class="ui right floated column">
+            <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'large icons' : 'huge icons']">
+              <a href="https://github.com/Stampeder525" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
+              <a  href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
+            </i>
+          </div>
+        </div>
     </div>
-    <!-- <p class="helpMessage">Click on a tile to expand</p> -->
   </div>
 </template>
 
@@ -93,7 +102,6 @@ h1, h2 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
 }
 
 h1 {
@@ -118,10 +126,7 @@ a {
   color: #42b983;
 }
 
-.helpMessage {
-  position: absolute;
-  bottom: 3%;
-  left: 40%;
+.footerText {
   color: lightgrey;
   font-size: 2em;
   font-family: 'Open Sans', sans-serif !important;
@@ -137,9 +142,25 @@ a {
   height: 2em;
   width: 100%;
   bottom: 0;
-  right: 3%;
-  //background-color: blue;
-  text-align: right;
+  pointer-events: none;
+
+  .profileLinks {
+    text-align: right;
+    right: 3%;
+    pointer-events: all !important;
+  }
+
+
+  .helpMessage {
+    text-align: center !important;
+  }
+
+
+  .credits {
+    text-align: left;
+    position: absolute;
+    left: 1%;
+  }
 
   i {
     color: lightgrey;
@@ -154,10 +175,25 @@ a {
   .footer {
     position: absolute;
     height: 5em;
-    width: 10em;
-    bottom: 3%;
+    width: 100%;
+    bottom: 0;
     //background-color: blue;
-    text-align: right;
+
+    .profileLinks {
+      text-align: right;
+      position: absolute;
+      right: 10%;
+    }
+
+    .helpMessage {
+      text-align: center;
+    }
+
+    .credits {
+      text-align: left;
+      position: absolute;
+      left: 3%;
+    }
 
     i {
       color: lightgrey;
