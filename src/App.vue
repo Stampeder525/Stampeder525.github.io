@@ -3,10 +3,10 @@
   <div id="app">
     <div id="tiles">
       <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:description="tile.description" v-bind:icon="tile.icon"></tile-component>
+          <tile-component v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:description="tile.description" v-bind:icon="tile.icon"></tile-component>
       </div>
     </div>
-    <div class="footer">
+    <div v-if="!tileSelected" class="footer">
         <div class="ui equal width grid">
           <div class="ui left floated column credits">
             <p class="footerText">Loren Heubert-Aubry ©</p>
@@ -64,6 +64,7 @@ export default {
             corner: "bannerTopLeft",
         }
       ],
+      tileSelected: false,
     }
   }
 }
