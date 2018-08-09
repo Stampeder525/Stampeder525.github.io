@@ -10,7 +10,7 @@
             <projects-content-component v-if="name == 'What I\'ve made'"></projects-content-component>
             <about-content-component v-if="name == 'Who I am'"></about-content-component>
         </div>
-        <div v-if="tileSelected, $mq != 'sm'" class="footer">
+        <div v-if="tileSelected && $mq != 'sm'" class="footer">
             <div class="ui centered grid">
                 <div class="ui six wide centered column helpMessage">
                     <p class="footerText">Click anywhere to return</p>
