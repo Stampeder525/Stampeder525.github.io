@@ -129,7 +129,7 @@ a {
 
 .footerText {
   color: lightgrey;
-  font-size: 2em;
+  font-size: 1em;
   font-family: 'Open Sans', sans-serif !important;
   font-weight: 0 !important;
 }
@@ -147,7 +147,8 @@ a {
 
   .profileLinks {
     text-align: right;
-    right: 3%;
+    right: 26%;
+    position:absolute;
     pointer-events: all !important;
   }
 
@@ -160,7 +161,7 @@ a {
   .credits {
     text-align: left;
     position: absolute;
-    left: 1%;
+    left: 8%;
   }
 
   i {
@@ -173,6 +174,14 @@ a {
 }
 
 @media (min-width: 768px) {
+
+  .footerText {
+    color: lightgrey;
+    font-size: 2em;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 0 !important;
+  }
+
   .footer {
     position: absolute;
     height: 5em;

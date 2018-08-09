@@ -166,7 +166,7 @@ export default {
     }
 
     .tileContent {
-        top: 8em;
+        top: 10em;
     }
 }
 
@@ -179,7 +179,7 @@ export default {
     }
 
     .tileContent {
-        top: 8em;
+        top: 10em;
     }
 }
 

@@ -8,7 +8,7 @@
         </div>
         <div v-for="j in jobs" :key="j.id" class="ui row">
             <div class="ui eleven wide column">
-                <div class="ui grid">
+                <div class="ui stackable grid">
                     <div class="ui row">
                         <div class="ui four wide column">
                             <div class="companyName">
