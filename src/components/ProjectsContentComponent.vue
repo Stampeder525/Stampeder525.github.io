@@ -13,7 +13,7 @@
                             <div class="ui mini images">
                                 <img class="ui mini circular image" v-bind:title="t.name" v-for="t in p.tech" :key="t.name" v-bind:src="t.img">
                             </div>
-                            <p v-if="p.awards" v-for="a in p.awards" :key="a.name"><i class="ui star outline icon"></i>Award Winner!</p>
+                            <p v-if="p.awards" v-for="a in p.awards" :key="a.name"><i class="ui star outline icon"></i>{{a.sponsor}} award for {{a.name}}</p>
                             <div v-if="!p.expanded" class="description">{{ p.description }}</div>
                             <div v-if="p.expanded" class="description">{{ p.details }}</div>
                             <div v-if="!p.expanded" class="ui basic mini button" v-on:click="p.expanded = !p.expanded"><i class="angle down icon"></i>More</div>

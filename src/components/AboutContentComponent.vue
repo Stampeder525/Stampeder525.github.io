@@ -39,6 +39,7 @@
                         <div class="ui success message">
                             <div class="header">Message Sent!</div>
                         </div>
+                        <input type="hidden" name="_next" value="https://lorenha.me" />
                         <input type="text" name="_gotcha" style="display:none" value="gotcha!" />
                         <button type="submit" class="ui submit button">Submit</button>
                     </form>

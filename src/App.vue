@@ -7,22 +7,22 @@
     </div>
     <div v-if="!loading" id="tiles">
       <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
+          <tile-component v-bind:tabindex="tile.id" v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
       </div>
     </div>
     <div v-if="!tileSelected" class="footer">
         <div class="ui grid">
           <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated five wide column']">
             <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
-            <p class="footerText">Artwork by <a target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
+            <p class="footerText">Artwork by <a tabindex="4" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
           </div>
           <!-- <div class="ui column helpMessage">
             <p class="footerText">Click any tile to expand</p>
           </div> -->
           <div class="ui right floated four wide column">
             <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'large icons' : 'huge icons']">
-              <a href="https://github.com/Stampeder525" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
-              <a  href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
+              <a tabindex="5" href="https://github.com/Stampeder525" value="github" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
+              <a  tabindex="6" href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" value="linkedin" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
             </i>
           </div>
         </div>
@@ -50,6 +50,7 @@ export default {
     return {
       tiles: [
         {
+            id: 3,
             name: "What I use",
             color: "#3F51B5",
             img: "/src/assets/images/background/gems2.png",
@@ -57,6 +58,7 @@ export default {
             corner: "bannerBottomRight",
         },
         {
+            id: 1,
             name: "What I've made",
             color: "#FF9800",
             img: "/src/assets/images/background/cactus2.png",
@@ -64,6 +66,7 @@ export default {
             corner: "bannerTopRight",
         },
         {
+            id: 2,
             name: "Where I work",
             color: "#FF5252",
             img: "/src/assets/images/background/wave2.png",
@@ -71,6 +74,7 @@ export default {
             corner: "bannerBottomLeft",
         },
         {
+            id: 0,
             name: "Who I am",
             color: "#4CAF50",
             img: "/src/assets/images/background/web2.png",
