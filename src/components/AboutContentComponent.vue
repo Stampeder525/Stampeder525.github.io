@@ -1,8 +1,8 @@
 <template>
     <div class="ui container">
-        <clazy-load v-bind:src="splashImg">
-            <div class="ui left floated image">
-                <img class="splash" v-bind:src="splashImg">
+        <clazy-load noselect v-bind:src="splashImg">
+            <div noselect class="ui left floated image">
+                <img noselect class="splash" v-bind:src="splashImg">
             </div>
             <div slot="placeholder"><i class="notched circle loading icon"></i></div>
         </clazy-load>
@@ -22,23 +22,25 @@
             <div class="contact row">
                 <div class="ui right floated ten wide column">
                     <h3>Get in touch</h3>
-                    <form class="ui small form" v-on:click.stop>
+                    <form class="ui small form" action="https://formspree.io/lorenheubertaubry@gmail.com" method="POST" v-on:click.stop>
                         <div class="required field" style="display:inline-block;">
                             <label>Name</label>
-                            <input name="name" placeholder="Name" type="text">
+                            <input name="name" placeholder="Jane Doe" type="text">
                         </div>
+                        <input type="hidden" name="_subject" value="Your site visitor has sent you a message!" />
                         <div class="required field" style="display:inline-block;">
                             <label>Email</label>
-                            <input name="email" placeholder="Email" type="text">
+                            <input name="_replyto" placeholder="janedoe@email.com" type="email">
                         </div>
                         <div class="required field">
                             <label>Message</label>
-                            <textarea name="message" placeholder="Message" rows="2"></textarea>
+                            <textarea name="message" placeholder="Write a message here!" rows="2"></textarea>
                         </div>
                         <div class="ui success message">
                             <div class="header">Message Sent!</div>
                         </div>
-                        <div class="ui submit button" v-on:click="onSubmit($event)">Submit</div>
+                        <input type="text" name="_gotcha" style="display:none" value="gotcha!" />
+                        <button type="submit" class="ui submit button">Submit</button>
                     </form>
                 </div>
             </div>
@@ -51,7 +53,7 @@ export default {
     name: "AboutContentComponent",
     data() {
         return {
-            splashImg: "/src/assets/images/about/loren_r.png",
+            splashImg: "/src/assets/images/about/loren_expanded_sky.png",
             descriptors: [
                 "Programmer.",
                 "Designer.",
@@ -70,11 +72,11 @@ export default {
                     url: ""
                 }
             ],
-            description: ["Hi there! I'm a student at the University of Michigan pursuing a Bachelor's \
-                          degree in Information Science with a concentration in User Experience, minoring in \
+            description: ["Hi there! I'm a software engineer studying at the University of Michigan, pursuing a Bachelor's \
+                          degree in Information Science with a concentration in User Experience, and minoring in \
                           Computer Science. I'm graduating in December 2018.", "I'm a strong believer in holistically \
-                          knowing your products from blueprint to market — to understand not just the back end infrastructure, \
-                          but the space it occupies. How will people use this? Why? How will it work, how will it look, and \
+                          knowing your products from blueprint to market — to understand the back end infrastructure, \
+                          but also the space it occupies. How will people use this? Why? How will it work, how will it look, and \
                           what implications will it have for the people who use it?", "When I'm not coding, you can find me \
                           hiking, gaming, or writing for <a href=\"http://everythreeweekly.com/\" \
                           rel=\"noopener\" target=\"_blank\" style=\"color: white; text-decoration: underline\">my school's satire newspaper.</a>"

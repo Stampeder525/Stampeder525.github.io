@@ -1,21 +1,19 @@
 <!-- TileComponent.vue -->
 <template>
 
-<div class="tile" v-bind:style="{backgroundColor: tileSelected ? color :  'transparent', cursor: tileSelected ? 'default':'pointer', borderColor: color}" v-bind:class="{ tileDetails: tileSelected }" v-on:click="toggleFrontBack()">
+<div class="tile" v-on:mouseenter="invertBackground" v-on:mouseleave="resetBackground" v-bind:style="{backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', backgroundColor: tileSelected ? color : 'transparent', cursor: tileSelected ? 'default':'pointer'}" v-bind:class="{ tileDetails: tileSelected }" v-on:click="toggleFrontBack()">
     <div class="banner">
         <h1 class="title" v-bind:style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
         <div class="tileContent">
-            <skills-content-component v-if="name == 'What I use'"></skills-content-component>
+            <skills-content-component noselect v-if="name == 'What I use'"></skills-content-component>
             <experience-content-component v-if="name == 'Where I work'"></experience-content-component>
             <projects-content-component v-if="name == 'What I\'ve made'"></projects-content-component>
             <about-content-component v-if="name == 'Who I am'"></about-content-component>
         </div>
         <div v-if="tileSelected && $mq != 'sm'" class="footer">
-            <div class="ui centered grid">
-                <div class="ui six wide centered column helpMessage">
+                <div class="helpMessage">
                     <p class="footerText">Click anywhere to return</p>
                 </div>
-            </div>
         </div>
     </div>
 </div>
@@ -33,14 +31,15 @@ export default {
     props: [
         "name",
         "color",
-        "description",
         "corner",
-        "icon"
+        "img",
+        "alt",
     ],
     data () {
         return {
             tileSelected: false,
-            animating: false
+            animating: false,
+            tileImg: this.img
         }
     },
     methods: {
@@ -48,6 +47,12 @@ export default {
             this.animating = true;
             this.tileSelected = !this.tileSelected;
             this.animating = false;
+        },
+        invertBackground() {
+            this.tileImg = this.alt;
+        },
+        resetBackground() {
+            this.tileImg = this.img;
         }
     },
     components: {
@@ -67,6 +72,9 @@ export default {
     width:100vw;
     height: 25vh;
     //border: 2em solid;
+    background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
 
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
@@ -96,7 +104,7 @@ export default {
 .tile:not(.tileDetails):hover {
     //border: 2px solid;
 
-    background-color: rgb(240, 239, 239) !important;
+    //background-color: rgb(240, 239, 239) !important;
     h1 {
         font-weight: bolder !important;
         opacity: 100 !important;
@@ -206,8 +214,8 @@ export default {
     .tile {
         z-index: 0;
         position: absolute;
-        width: 48vw;
-        height: 48vh;
+        width: 49vw;
+        height: 49vh;
 
         .banner {
             position: absolute;
@@ -264,14 +272,17 @@ export default {
             color: white;
         }
 
+        
+
     }
 
     .bannerTopLeft {
-        left: 1%;
-        top: 1%;
+        left: 0.5%;
+        top: 0.5%;
         .banner .title{
-            right: 3%;
-            bottom: 3%;
+            padding: 1.5%;
+            right: 0;
+            bottom: 0;
             text-align: right;
         }
 
@@ -280,12 +291,22 @@ export default {
         } 
     }
 
-    .bannerTopRight {
-        left: 51%;
-        top: 1%;
+    .bannerTopLeft.tileDetails {
         .banner .title{
-            left: 3%;
+            padding: 0;
+            right: 3%;
             bottom: 3%;
+            text-align: right;
+        }
+    }
+
+    .bannerTopRight {
+        left: 50.5%;
+        top: 0.5%;
+        .banner .title{
+            padding: 1.5%;
+            left: 0;
+            bottom: 0;
             text-align: left;
         }
 
@@ -294,12 +315,23 @@ export default {
         } 
     }
 
-    .bannerBottomLeft {
-        left: 1%;
-        top: 51%;
+    .bannerTopRight.tileDetails {
         .banner .title{
-            right: 3%;
-            top: 3%;
+            padding: 0;
+            left: 3%;
+            bottom: 3%;
+            text-align: left;
+        }
+
+    }
+
+    .bannerBottomLeft {
+        left: 0.5%;
+        top: 50.5%;
+        .banner .title{
+            padding: 1.5%;
+            right: 0;
+            top: 0;
             text-align: right;
         }
 
@@ -308,18 +340,37 @@ export default {
         } 
     }
 
-    .bannerBottomRight {
-        left: 51%;
-        top: 51%;
+    .bannerBottomLeft.tileDetails {
         .banner .title{
-            left: 3%;
+            padding: 0;
+            right: 3%;
             top: 3%;
+            text-align: right;
+        }
+    }
+
+    .bannerBottomRight {
+        left: 50.5%;
+        top: 50.5%;
+        .banner .title{
+            padding: 1.5%;
+            left: 0;
+            top: 0;
             text-align: left;
         }   
 
         .tileContent {
             top: 8em;
         } 
+    }
+
+    .bannerBottomight.tileDetails {
+        .banner .title{
+            padding: 0;
+            left: 3%;
+            top: 3%;
+            text-align: left;
+        }  
     }
 }
 

@@ -1,20 +1,25 @@
 
 <template>
-  <div id="app">
-    <div id="tiles">
+  <div id="app" v-cloak>
+    <div id="loading" v-if="loading">
+      <h1 style="color:black">Hi, Loren Heubert-Aubry.</h1>
+      <h2 style="color:black">Welcome!</h2>
+    </div>
+    <div v-if="!loading" id="tiles">
       <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:description="tile.description" v-bind:icon="tile.icon"></tile-component>
+          <tile-component v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
       </div>
     </div>
     <div v-if="!tileSelected" class="footer">
-        <div class="ui equal width grid">
-          <div class="ui left floated column credits">
-            <p class="footerText">Loren Heubert-Aubry ©</p>
+        <div class="ui grid">
+          <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated five wide column']">
+            <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
+            <p class="footerText">Artwork by <a target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
           </div>
-          <div class="ui column helpMessage">
-            <p class="footerText">Click on a tile to expand</p>
-          </div>
-          <div class="ui right floated column">
+          <!-- <div class="ui column helpMessage">
+            <p class="footerText">Click any tile to expand</p>
+          </div> -->
+          <div class="ui right floated four wide column">
             <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'large icons' : 'huge icons']">
               <a href="https://github.com/Stampeder525" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
               <a  href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
@@ -32,7 +37,8 @@ export default {
   name: 'app',
   components: {
     TileComponent
-  }
+  },
+  loading: true,
 }
 
 </script>
@@ -46,26 +52,41 @@ export default {
         {
             name: "What I use",
             color: "#3F51B5",
+            img: "/src/assets/images/background/gems2.png",
+            alt: "/src/assets/images/background/gems1.png",
             corner: "bannerBottomRight",
         },
         {
             name: "What I've made",
             color: "#FF9800",
+            img: "/src/assets/images/background/cactus2.png",
+            alt: "/src/assets/images/background/cactus1.png",
             corner: "bannerTopRight",
         },
         {
             name: "Where I work",
             color: "#FF5252",
+            img: "/src/assets/images/background/wave2.png",
+            alt: "/src/assets/images/background/wave1.png",
             corner: "bannerBottomLeft",
         },
         {
             name: "Who I am",
             color: "#4CAF50",
+            img: "/src/assets/images/background/web2.png",
+            alt: "/src/assets/images/background/web1.png",
             corner: "bannerTopLeft",
         }
       ],
       tileSelected: false,
     }
+  },
+  mounted() {
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been rendered
+      this.loading = false;
+    })
   }
 }
 </script>
@@ -74,6 +95,11 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Roboto:500');
 @import url('https://fonts.googleapis.com/css?family=family=Open+Sans:100');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+[v-cloak]{
+  display: none !important;
+}
+[v-cloak]::before { content: "loading…" }
 
 #app, #tiles {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif !important;
@@ -128,10 +154,11 @@ a {
 }
 
 .footerText {
-  color: lightgrey;
+  color: white;
   font-size: 1em;
   font-family: 'Open Sans', sans-serif !important;
   font-weight: 0 !important;
+  margin-bottom: 0;
 }
 
 .ui.grid > *{
@@ -149,7 +176,16 @@ a {
     text-align: right;
     right: 26%;
     position:absolute;
+    border-radius:10px;
     pointer-events: all !important;
+
+    background-color: rgba(155, 155, 155, 0.5);
+    i {
+      color: white;
+    }
+    i:hover {
+      color: #4183c4;
+    }
   }
 
 
@@ -162,10 +198,14 @@ a {
     text-align: left;
     position: absolute;
     left: 8%;
+    border-radius:10px;
+    pointer-events: all !important;
+    background-color: rgba(155, 155, 155, 0.5);
+
   }
 
   i {
-    color: lightgrey;
+    color: white;
   }
 
   i:hover {
@@ -180,6 +220,10 @@ a {
     font-size: 2em;
     font-family: 'Open Sans', sans-serif !important;
     font-weight: 0 !important;
+
+    a {
+      color: lightgrey;
+    }
   }
 
   .footer {
@@ -187,12 +231,27 @@ a {
     height: 5em;
     width: 100%;
     bottom: 0;
-    //background-color: blue;
 
     .profileLinks {
+      background-color:transparent;
       text-align: right;
       position: absolute;
       right: 10%;
+
+      i {
+        color: lightgrey;
+      }
+    }
+
+    .profileLinks:hover {
+      background-color: rgba(155, 155, 155, 0.5);
+
+      i {
+        color: white;
+      }
+      i:hover {
+        color: #4183c4;
+      }
     }
 
     .helpMessage {
@@ -200,9 +259,17 @@ a {
     }
 
     .credits {
+      background-color:transparent;
       text-align: left;
       position: absolute;
       left: 3%;
+    }
+
+    .credits:hover {
+      background-color: rgba(155, 155, 155, 0.5);
+      .footerText, a {
+        color: white;
+      }
     }
 
     i {

@@ -8,11 +8,12 @@
                         </a>
                         <div class="content">
                             <div class="header"><a v-bind:href="p.url" rel="noopener" target="_blank">{{ p.name }}</a></div>
+                            <p>{{ p.platform }}</p>
                             <p>{{ p.date }}</p>
                             <div class="ui mini images">
                                 <img class="ui mini circular image" v-bind:title="t.name" v-for="t in p.tech" :key="t.name" v-bind:src="t.img">
                             </div>
-                            <p v-if="p.awards" v-for="a in p.awards" :key="a.name"><i class="ui star outline icon"></i> {{a.sponsor}} award for {{a.name}}</p>
+                            <p v-if="p.awards" v-for="a in p.awards" :key="a.name"><i class="ui star outline icon"></i>Award Winner!</p>
                             <div v-if="!p.expanded" class="description">{{ p.description }}</div>
                             <div v-if="p.expanded" class="description">{{ p.details }}</div>
                             <div v-if="!p.expanded" class="ui basic mini button" v-on:click="p.expanded = !p.expanded"><i class="angle down icon"></i>More</div>
@@ -21,6 +22,22 @@
                     </div>
                 </div>
         </div>
+        <!-- <div class="ui row">
+            <div class="ui six wide right floated column">
+                <div class="ui segment" v-on:click.stop>
+                    <div class="ui header">Awards</div>
+                    <div class="awards">
+                        <div class="award" v-for="a in awards" :key="a.name">
+                            <h4>{{a.award}}</h4>
+                            <h4>{{a.project}}</h4>
+                            <h5>Sponsored by {{a.sponsor}}</h5>
+                            <h5>{{a.event}}</h5>
+                            <h5>{{a.date}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 </template>
 
@@ -33,6 +50,7 @@ export default {
                 {
                     name: "HouseMate",
                     url: "https://github.com/Stampeder525/HouseMate",
+                    platform: "Mobile App",
                     date: "September 2017",
                     img: "/src/assets/images/projects/housemate.jpg",
                     description: "An automated chore wheel with financial incentives.",
@@ -54,6 +72,7 @@ export default {
                 {
                     name: "TalkNess",
                     url: "https://github.com/ashwinGokhale/CapitalOneTwilio",
+                    platform: "Chat Bot",
                     date: "February 2017",
                     img: "/src/assets/images/projects/talkness.jpg",
                     description: "A texting chat bot for all your banking needs.",
@@ -81,6 +100,7 @@ export default {
                     name: "Buzzword Bingo",
                     url: "https://github.com/Stampeder525/buzzword_bingo",
                     demo: "",
+                    platform: "Web App",
                     date: "June 2016",
                     img: "/src/assets/images/projects/buzzwordbingo.jpg",
                     description: "A multiplayer bingo game for meetings that go on too long.",
@@ -102,6 +122,7 @@ export default {
                 {
                     name: "Pushup Ninja",
                     url: "https://github.com/ronnoceel/pushup-ninja",
+                    platform: "Web App",
                     date: "January 2016",
                     img: "/src/assets/images/projects/pushupninja.jpg",
                     description: "A pushup-tracking app using the Myo Armband.",
@@ -124,6 +145,7 @@ export default {
                 {
                     name: "Highlight",
                     url: "https://github.com/iRapha/cmd-f",
+                    platform: "iOS App",
                     date: "September 2015",
                     img: "/src/assets/images/projects/highlight.jpg",
                     description: "Harness the power of Cmd-F on real-life documents.",
@@ -150,6 +172,23 @@ export default {
                     ]
 
                 },
+            ],
+            awards: [
+                {
+                    "project":"Confidential Project",
+                    "award":"Second Place",
+                    "sponsor":"OPTUM",
+                    "date":"July 2018",
+                    "event":"OPTUM Global Hackathon 2018"
+                },
+                {
+                    "project":"Highlight",
+                    "award":"Best Business Solution App Leveraging Open Source",
+                    "sponsor":"Goldman Sachs",
+                    "date":"September 2015",
+                    "event":"MHacks 6"
+                },
+
             ]
         }
     }
@@ -159,7 +198,7 @@ export default {
 <style lang="scss">
 
 .ui .card {
-    min-height: 55vh;
+    min-height: 53vh;
     min-width: 12vw;
     width: 100%;
 }
