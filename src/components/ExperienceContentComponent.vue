@@ -82,7 +82,6 @@ export default {
 </script>
 
 <style lang="scss">
-//@import url('https://fonts.googleapis.com/css?family=family=Open+Sans:300');
 
 #work {
     .grid {
