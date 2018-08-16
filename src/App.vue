@@ -7,7 +7,7 @@
     </div>
     <div v-if="!loading" id="tiles">
       <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component v-bind:tabindex="tile.id" v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.name" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
+          <tile-component v-bind:tabindex="tile.id" v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
       </div>
     </div>
     <div v-if="!tileSelected" class="footer">
@@ -20,7 +20,7 @@
             <p class="footerText">Click any tile to expand</p>
           </div> -->
           <div class="ui right floated four wide column">
-            <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'large icons' : 'huge icons']">
+            <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'big icons' : 'huge icons']">
               <a tabindex="5" href="https://github.com/Stampeder525" value="github" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
               <a  tabindex="6" href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" value="linkedin" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
             </i>
@@ -52,6 +52,7 @@ export default {
         {
             id: 3,
             name: "What I use",
+            url: "tools",
             color: "#3F51B5",
             img: "/src/assets/images/background/gems2.png",
             alt: "/src/assets/images/background/gems1.png",
@@ -60,6 +61,7 @@ export default {
         {
             id: 1,
             name: "What I've made",
+            url: "projects",
             color: "#FF9800",
             img: "/src/assets/images/background/cactus2.png",
             alt: "/src/assets/images/background/cactus1.png",
@@ -68,6 +70,7 @@ export default {
         {
             id: 2,
             name: "Where I work",
+            url: "work",
             color: "#FF5252",
             img: "/src/assets/images/background/wave2.png",
             alt: "/src/assets/images/background/wave1.png",
@@ -76,6 +79,7 @@ export default {
         {
             id: 0,
             name: "Who I am",
+            url: "about",
             color: "#4CAF50",
             img: "/src/assets/images/background/web2.png",
             alt: "/src/assets/images/background/web1.png",
@@ -162,6 +166,10 @@ a {
   font-family: 'Open Sans', sans-serif !important;
   font-weight: 0 !important;
   margin-bottom: 0;
+
+  a {
+      color: white;
+  }
 }
 
 .ui.grid > *{
@@ -220,7 +228,7 @@ a {
 
   .footerText {
     color: lightgrey;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Open Sans', sans-serif !important;
     font-weight: 0 !important;
 

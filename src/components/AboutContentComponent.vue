@@ -19,7 +19,7 @@
                     <p v-html="p" v-for="p in description" :key="p" v-on:click.stop>{{ p }}</p>
                 </div>
             </div>
-            <div class="contact row">
+            <div class="row contact">
                 <div class="ui right floated ten wide column">
                     <h3>Get in touch</h3>
                     <form class="ui small form" action="https://formspree.io/lorenheubertaubry@gmail.com" method="POST" v-on:click.stop>
@@ -91,89 +91,97 @@ export default {
 <style lang="scss" scoped>
 //@import url('https://fonts.googleapis.com/css?family=family=Open+Sans:300');
 
+#about {
+    .container {
+        width: 93%;
+        height: 85vh;
+        //margin-right: 5.5em!important;
+    }
 
-.container {
-    width: 93%;
-    height: 85vh;
-}
+    .splash, .ui.left.floated.image {
+        margin: 0;
+        bottom: 0;
+        z-index: 0;
+    }
 
-.splash, .ui.left.floated.image {
-    margin: 0;
-    bottom: 0;
-    z-index: 0;
-}
+    .ui.left.floated.image {
+        position:absolute;
+        left: 0;
+        bottom: 0;
+    }
 
-.ui.left.floated.image {
-    position:absolute;
-    left: 0;
-    bottom: 0;
-}
+    .descriptors {
+        width: 100%;
+        margin-bottom: 2%;
 
-.descriptors {
-    width: 100%;
-    margin-bottom: 2%;
+        h2 {
+            font-size: 2.3em;
+            color: white;
+            display: inline-block;
+            padding-right: 0.5em;
+            z-index: 2;
+        }
+    }
+
+    .aboutme {
+        padding-top: 0 !important;
+    }
+
+    .descriptorRow {
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
 
     h2 {
-        font-size: 2.3em;
-        color: white;
-        display: inline-block;
-        padding-right: 0.5em;
-        z-index: 2;
+        margin: 0;
     }
-}
 
-.aboutme {
-    padding-top: 0 !important;
-}
-
-.descriptorRow {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
-}
-
-h2 {
-    margin: 0;
-}
-
-p {
-    font-size: 1.4em;
-}
-
-p, label {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 0 !important;
-}
-
-.grid {
-    margin-left: 0;
-}
-
-.ui.left.floated.ten.wide.column {
-   padding-left: 0;
-   margin-bottom: 0.5em;
-}
-
-.row {
-    padding-bottom: 0;
-}
-.form {
-    width: 65%;
-    label {
-        color: white !important;
+    p {
+        font-size: 1.4em;
     }
-}
 
-textarea {
-    resize: none;
-}
+    p, label {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 0 !important;
+    }
 
-.contact {
-    margin-top: 2em;
-    margin-bottom: 3em !important;
+    .grid {
+        margin-left: -5em!important;
+        //margin-right: 0;
+    }
+
+    .ui.left.floated.ten.wide.column {
+    padding-left: 0;
+    margin-bottom: 0.5em;
+    }
+
+    .row {
+        padding-bottom: 0;
+    }
+    .form {
+        width: 65%;
+        label {
+            color: white !important;
+        }
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .contact {
+        margin-top: 2em;
+        margin-bottom: 3em !important;
+    }
 }
 
 @media (min-width: 768px) {
-
+    #about{
+        .grid {
+            margin-left: 0!important;
+            //margin-right: 0;
+        }
+    }
 }
 
 

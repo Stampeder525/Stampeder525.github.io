@@ -84,113 +84,129 @@ export default {
 <style lang="scss">
 //@import url('https://fonts.googleapis.com/css?family=family=Open+Sans:300');
 
-.pastExperience {
-    border: 4px solid white;
-    border-radius: 10px;
-    height: 100%;
-    width: 50%;
-}
+#work {
+    .grid {
+            margin: 0 0.5 !important;
+    }
 
-.tileContent {
-    position: relative;
-    width: 100%;
+    .pastExperience {
+        border: 4px solid white;
+        border-radius: 10px;
+        height: 100%;
+        width: 50%;
+    }
 
-    .detailsButton {
-        z-index: 2;
+    .tileContent {
+        position: relative;
+        width: 100%;
+
+        .detailsButton {
+            z-index: 2;
+            position:absolute;
+            bottom:0;
+            display: inline-block;
+            min-height: 1em;
+            width: 10em;
+            cursor: pointer;
+
+            i {
+                display: inline-block;
+                margin-bottom: 0.5em !important;
+            }
+
+            h2 {
+                opacity: 0;
+                display: inline-block;
+                padding-bottom: 0;
+
+                -webkit-transition: opacity 0.2s;
+                -moz-transition: opacity 0.2s;
+                -o-transition: opacity 0.2s;
+                transition: opacity 0.2s;
+            }
+        }
+
+        .more {
+            left: 0;
+        }
+
+        .less {
+            right: 0;
+            height: 100%;
+        }
+
+        .detailsButton:hover h2 {
+            opacity: 100;
+        }
+
+    }
+
+    .ui.list {
+        margin-top: 1.5em !important;
+    }
+
+    .companyName {
+        width: 100%;
+        a{
+            color: white;
+        }
+        h1 {
+            font-size: 5em;
+            padding: 0 !important;
+        }
+    }
+
+    .item, .description {
+        font-family: 'Open Sans', sans-serif;
+
+        p {
+            font-size: 1.4em;
+        }
+    }
+
+    .description {
+        margin-top: 2% !important;
+    }
+
+    .expander{
+        .four.wide.column {
+            height: 100%;
+        }
+    }
+
+    .jobDetails {
+        margin-left: 2%;
+    }
+
+    .employmentStatus {
+        font-weight: bold;
+        color: lightgreen;
+    }
+
+    .icon {
+        margin: 0 !important;
+    }
+
+    .officeImg {
+        height: 100%;
         position:absolute;
-        bottom:0;
-        display: inline-block;
-        min-height: 1em;
-        width: 10em;
-        cursor: pointer;
-
-        i {
-            display: inline-block;
-            margin-bottom: 0.5em !important;
+        right:0;
+        top:0;
+        img {
+            //width: 100%;
+            height: 100% !important;
         }
+    }
+}
 
-        h2 {
-            opacity: 0;
-            display: inline-block;
-            padding-bottom: 0;
 
-            -webkit-transition: opacity 0.2s;
-            -moz-transition: opacity 0.2s;
-            -o-transition: opacity 0.2s;
-            transition: opacity 0.2s;
+@media (min-width: 768px) {
+    #work {
+        .grid {
+            margin: 0 1 !important;
         }
     }
 
-    .more {
-        left: 0;
-    }
-
-    .less {
-        right: 0;
-        height: 100%;
-    }
-
-    .detailsButton:hover h2 {
-        opacity: 100;
-    }
-
-}
-
-.ui.list {
-    margin-top: 1.5em !important;
-}
-
-.companyName {
-    width: 100%;
-    a{
-        color: white;
-    }
-    h1 {
-        font-size: 5em;
-        padding: 0 !important;
-    }
-}
-
-.item, .description {
-    font-family: 'Open Sans', sans-serif;
-
-    p {
-        font-size: 1.4em;
-    }
-}
-
-.description {
-    margin-top: 2% !important;
-}
-
-.expander{
-    .four.wide.column {
-        height: 100%;
-    }
-}
-
-.jobDetails {
-    margin-left: 2%;
-}
-
-.employmentStatus {
-    font-weight: bold;
-    color: lightgreen;
-}
-
-.icon {
-    margin: 0 !important;
-}
-
-.officeImg {
-    height: 100%;
-    position:absolute;
-    right:0;
-    top:0;
-    img {
-        //width: 100%;
-        height: 100% !important;
-    }
 }
 
     
