@@ -38,11 +38,11 @@
                             </div>
                         </div>
                     </div>
-                    <div v-on:click.stop class="ui row description">
-                        <div class="ui twelve wide column">
+                    <!-- <div v-on:click.stop class="ui row description"> -->
+                        <div class="ui twelve wide column description">
                             <p v-for="p in j.description" :key="p">{{p}}</p>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
