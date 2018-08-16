@@ -96,9 +96,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Roboto:500');
-@import url('https://fonts.googleapis.com/css?family=family=Open+Sans:100');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+// @import url('https://fonts.googleapis.com/css?family=family=Open+Sans:100');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 [v-cloak]{
   display: none !important;
