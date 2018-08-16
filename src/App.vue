@@ -10,6 +10,7 @@
           <tile-component v-bind:tabindex="tile.id" v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
       </div>
     </div>
+    <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
     <div v-if="!tileSelected" class="footer">
         <div class="ui grid">
           <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated five wide column']">
@@ -162,7 +163,7 @@ a {
 
 .footerText {
   color: white;
-  font-size: 1em;
+  font-size: 0.75em;
   font-family: 'Open Sans', sans-serif !important;
   font-weight: 0 !important;
   margin-bottom: 0;
