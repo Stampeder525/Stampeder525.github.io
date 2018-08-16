@@ -61,18 +61,6 @@ export default {
                 "Game Developer.",
                 "Innovator."
             ],
-            links: [
-                {
-                    name: "Github",
-                    icon: "fa-github",
-                    url: ""
-                },
-                {
-                    name: "Linkedin",
-                    icon: "fa-linkedin",
-                    url: ""
-                }
-            ],
             description: ["Hi there! I'm a software engineer studying at the University of Michigan, pursuing a Bachelor's \
                           degree in Information Science with a concentration in User Experience, and minoring in \
                           Computer Science. I'm graduating in December 2018.", "I'm a strong believer in holistically \
@@ -95,27 +83,7 @@ export default {
 			for (let field in this.contact) {
 				this.contact[field] = ''
 			}
-        },
-        
-        onSubmit(event) {
-			event.preventDefault();
-			this.isSending = true;
-
-			setTimeout(() => {
-				let form = new FormData();
-				for (let field in this.contact) {
-					form.append(field, this.contact[field]);
-				}
-				this.$http.post('/src/email.php', form).then((response) => {
-					console.log(response);
-					this.clearForm();
-					this.isSending = false;
-				}).catch((e) => {
-					console.log(e)
-				});
-
-			}, 1000);
-		}
+        }
     }
 }
 </script>

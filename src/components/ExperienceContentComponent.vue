@@ -69,7 +69,7 @@ export default {
                     description: ["At OPTUM, I and my team won second-place at the 2018 OPTUM Global Hackathon \
                                   (First-place at Boston office) for a confidential internal project \
                                   designed to encourage proper health maintenance among children using wearable technology and gamified design. \
-                                  I was responsible for main interface and animations, created in Unity3D.", 
+                                  I was responsible for the initial idea, main interface, and back end logic, implemented in Unity3D.", 
                                   "While working on company projects, I created front-end interfaces using markup, Angular, and jQuery. On the back \
                                   end, I accessed, joined, and enriched data tables to feed into ElasticSearch with Pig and Hive. \
                                   I also briefly led my team as Scrum Master, keeping teammates on task, planning meetings, and facilitating \
