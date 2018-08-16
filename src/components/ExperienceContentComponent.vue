@@ -179,7 +179,7 @@ export default {
 
     .employmentStatus {
         font-weight: bold;
-        color: lightgreen;
+        color: #FFEB3B;
     }
 
     .icon {
