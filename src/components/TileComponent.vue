@@ -1,8 +1,12 @@
 <!-- TileComponent.vue -->
 <template>
 
-<div class="tile" v-on:mouseenter="invertBackground" v-on:mouseleave="resetBackground" v-bind:style="{backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', backgroundColor: tileSelected ? color : 'transparent', cursor: tileSelected ? 'default':'pointer'}" v-bind:class="{ tileDetails: tileSelected }" v-on:click="toggleFrontBack()">
-    <div class="banner">
+<div class="tile" v-on:mouseenter="invertBackground" v-on:mouseleave="resetBackground" v-bind:style="{backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', backgroundColor: tileSelected ? color : 'transparent', cursor: tileSelected ? 'default':'pointer'}" v-bind:class="{ tileDetails: tileSelected }">
+    <div class="backButton" v-bind:class="[($mq === 'sm') ? '':'hvr-float']" v-if="tileSelected" v-on:click="shrinkTile()">
+        <i class="ui big left arrow icon"></i>
+        <p>Back</p>
+    </div>
+    <div class="banner" v-on:click="expandTile()">
         <h1 class="title" v-bind:style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
         <div class="tileContent">
             <skills-content-component noselect v-if="name == 'What I use'"></skills-content-component>
@@ -10,11 +14,11 @@
             <projects-content-component v-if="name == 'What I\'ve made'"></projects-content-component>
             <about-content-component v-if="name == 'Who I am'"></about-content-component>
         </div>
-        <div v-if="tileSelected && $mq != 'sm'" class="footer">
+        <!-- <div v-if="tileSelected && $mq != 'sm'" class="footer">
                 <div class="helpMessage">
                     <p class="footerText">Click anywhere to return</p>
                 </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -38,15 +42,20 @@ export default {
     data () {
         return {
             tileSelected: false,
-            animating: false,
             tileImg: this.img
         }
     },
     methods: {
-        toggleFrontBack() {
-            this.animating = true;
-            this.tileSelected = !this.tileSelected;
-            this.animating = false;
+        expandTile() {
+            console.log("expanding!");
+            if(!this.tileSelected){
+                this.tileSelected = true;
+            }
+        },
+        shrinkTile(){
+            console.log("Shrinking!");
+            this.tileSelected = false;
+            setTimeout(50);
         },
         invertBackground() {
             this.tileImg = this.alt;
@@ -102,9 +111,7 @@ export default {
 }
 
 .tile:not(.tileDetails):hover {
-    //border: 2px solid;
 
-    //background-color: rgb(240, 239, 239) !important;
     h1 {
         font-weight: bolder !important;
         opacity: 100 !important;
@@ -150,6 +157,15 @@ export default {
         color: white;
     }
 
+ }
+
+ .backButton {
+     cursor: pointer;
+     z-index: 10;
+     position: absolute;
+     left: 2%;
+     top: 5%;
+     color: white;
  }
 
 .bannerTopLeft {
@@ -259,16 +275,9 @@ export default {
             transition: color 0.2s;
         }
 
-        // .banner {
-        //     overflow-y: scroll;
-        // }
-
         .tileContent {
             display: block;
             position: absolute;
-            //top: 15vh;
-            //left: 7%;
-            //height: 70vh;
             color: white;
         }
 
@@ -364,13 +373,43 @@ export default {
         } 
     }
 
-    .bannerBottomight.tileDetails {
+    .bannerBottomRight.tileDetails {
         .banner .title{
             padding: 0;
-            left: 3%;
+            left: 6%;
             top: 3%;
             text-align: left;
         }  
+    }
+
+    .hvr-float {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+
+        p {
+            opacity: 0;
+            -webkit-transition: opacity 0.3s;
+            -moz-transition: opacity 0.3s;
+            -o-transition: opacity 0.3s;
+            transition: opacity 0.3s;
+        }
+    }
+    .hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+
+        p {
+            opacity: 100;
+        }
     }
 }
 

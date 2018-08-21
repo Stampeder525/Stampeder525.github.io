@@ -7,11 +7,11 @@
     </div>
     <div v-if="!loading" id="tiles">
       <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component v-bind:tabindex="tile.id" v-cloak v-on:click="tileSelected = !tileSelected" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
+          <tile-component v-bind:tabindex="tile.id" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
       </div>
     </div>
     <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
-    <div v-if="!tileSelected" class="footer">
+    <div class="footer">
         <div class="ui grid">
           <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated five wide column']">
             <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
@@ -78,7 +78,7 @@ export default {
             corner: "bannerBottomLeft",
         },
         {
-            id: 0,
+            idy: 0,
             name: "Who I am",
             url: "about",
             color: "#4CAF50",
@@ -87,7 +87,6 @@ export default {
             corner: "bannerTopLeft",
         }
       ],
-      tileSelected: false,
     }
   },
   mounted() {
@@ -224,13 +223,13 @@ a {
 @media (min-width: 768px) {
 
   .footerText {
-    color: lightgrey;
+    color: white;
     font-size: 1.5em;
     font-family: 'Open Sans', sans-serif !important;
     font-weight: 0 !important;
 
     a {
-      color: lightgrey;
+      color: white;
     }
   }
 
@@ -241,18 +240,18 @@ a {
     bottom: 0;
 
     .profileLinks {
-      background-color:transparent;
+      background-color: rgba(155, 155, 155, 0.5);
       text-align: right;
       position: absolute;
       right: 10%;
 
       i {
-        color: lightgrey;
+        color: white;
       }
     }
 
     .profileLinks:hover {
-      background-color: rgba(155, 155, 155, 0.5);
+      background-color: rgba(155, 155, 155, 1);
 
       i {
         color: white;
@@ -267,21 +266,21 @@ a {
     }
 
     .credits {
-      background-color:transparent;
+      background-color: rgba(155, 155, 155, 0.5);
       text-align: left;
       position: absolute;
       left: 3%;
     }
 
     .credits:hover {
-      background-color: rgba(155, 155, 155, 0.5);
+      background-color: rgba(155, 155, 155, 1);
       .footerText, a {
         color: white;
       }
     }
 
     i {
-      color: lightgrey;
+      color: white;
     }
 
     i:hover {

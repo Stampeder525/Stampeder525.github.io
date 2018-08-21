@@ -63,8 +63,8 @@ export default {
             ],
             description: ["Hi there! I'm a software engineer studying at the University of Michigan, pursuing a Bachelor's \
                           degree in Information Science with a concentration in User Experience, and minoring in \
-                          Computer Science. I'm graduating in December 2018.", "I'm a strong believer in holistically \
-                          knowing your products from blueprint to market — to understand the back end infrastructure, \
+                          Computer Science. I'm graduating in December 2018.", "I'm a strong believer in \
+                          knowing your products holistically from blueprint to market — to understand the back end infrastructure, \
                           but also the space it occupies. How will people use this? Why? How will it work, how will it look, and \
                           what implications will it have for the people who use it?", "When I'm not coding, you can find me \
                           hiking, gaming, or writing for <a href=\"http://everythreeweekly.com/\" \

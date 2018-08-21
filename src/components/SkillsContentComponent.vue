@@ -8,7 +8,7 @@
                     <div class="ui images">
                         <div v-for="l in languages" v-bind:key="l.name" class="ui column hvr-float">
                             <clazy-load v-bind:src="l.img">
-                                <img class="ui tiny rounded image" v-bind:title="l.name" v-bind:data-tooltip="l.name" data-position="bottom center" v-bind:src="l.img" v-on:click.stop>
+                                <img class="ui tiny rounded image" v-bind:src="l.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ l.name }}</p>
@@ -23,7 +23,7 @@
                     <div class="ui images">
                         <div v-for="t in frontend" v-bind:key="t.name" class="ui column hvr-float">
                             <clazy-load v-bind:src="t.img">
-                                <img class="ui tiny rounded image" v-bind:title="t.name" v-bind:data-tooltip="t.name" data-position="bottom center" v-bind:src="t.img" v-on:click.stop>
+                                <img class="ui tiny rounded image" v-bind:src="t.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ t.name }}</p>
@@ -38,7 +38,7 @@
                     <div class="ui images">
                         <div v-for="t in backend" v-bind:key="t.name" class="column hvr-float">
                             <clazy-load v-bind:src="t.img">
-                                <img class="ui tiny rounded image" v-bind:title="t.name" v-bind:data-tooltip="t.name" data-position="bottom center" v-bind:src="t.img" v-on:click.stop>
+                                <img class="ui tiny rounded image" v-bind:src="t.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ t.name }}</p>
@@ -53,7 +53,7 @@
                     <div class="ui images">
                         <div v-for="t in design" v-bind:key="t.name" class="column hvr-float">
                             <clazy-load v-bind:src="t.img">
-                                <img class="ui tiny rounded image" v-bind:title="t.name" v-bind:data-tooltip="t.name" data-position="bottom center" v-bind:src="t.img" v-on:click.stop>
+                                <img class="ui tiny rounded image" v-bind:src="t.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ t.name }}</p>
@@ -68,7 +68,7 @@
                     <div class="ui images">
                         <div v-for="t in gamedev" v-bind:key="t.name" class="column hvr-float">
                             <clazy-load v-bind:src="t.img">
-                                <img class="ui tiny rounded image" v-bind:title="t.name" v-bind:data-tooltip="t.name" data-position="bottom center" v-bind:src="t.img" v-on:click.stop>
+                                <img class="ui tiny rounded image" v-bind:src="t.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ t.name }}</p>

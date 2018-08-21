@@ -7,10 +7,10 @@
             </div>
         </div>
         <div v-for="j in jobs" :key="j.id" class="ui row">
-            <div class="ui eleven wide column">
+            <div class="ui fourteen wide column">
                 <div class="ui stackable grid">
                     <div class="ui row">
-                        <div class="ui five wide column">
+                        <div class="ui four wide column">
                             <div class="companyName">
                                 <a v-bind:href="j.url" target="_blank" rel="noopener"><h1 class="companyName">{{j.company}}</h1></a>
                             </div>
@@ -145,7 +145,7 @@ export default {
     }
 
     .companyName {
-        width: 100%;
+        //width: 100%;
         a{
             color: white;
         }
