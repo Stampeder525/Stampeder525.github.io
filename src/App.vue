@@ -1,13 +1,13 @@
 
 <template>
   <div id="app" v-cloak>
-    <div id="loading" v-if="loading">
+    <!-- <div id="loading" v-if="loading">
       <h1 style="color:black">Hi, Loren Heubert-Aubry.</h1>
       <h2 style="color:black">Welcome!</h2>
-    </div>
-    <div v-if="!loading" id="tiles">
+    </div> -->
+    <div id="tiles">
       <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component v-bind:tabindex="tile.id" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
+          <tile-component tabindex="0" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
       </div>
     </div>
     <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
@@ -15,15 +15,15 @@
         <div class="ui grid">
           <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated five wide column']">
             <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
-            <p class="footerText">Artwork by <a tabindex="4" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
+            <p class="footerText">Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
           </div>
           <!-- <div class="ui column helpMessage">
             <p class="footerText">Click any tile to expand</p>
           </div> -->
           <div class="ui right floated four wide column">
             <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'big icons' : 'huge icons']">
-              <a tabindex="5" href="https://github.com/Stampeder525" value="github" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
-              <a  tabindex="6" href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" value="linkedin" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
+              <a tabindex="0" href="https://github.com/Stampeder525" value="github" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
+              <a  tabindex="0" href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" value="linkedin" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
             </i>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default {
   components: {
     TileComponent
   },
-  loading: true,
+  // loading: true,
 }
 
 </script>
@@ -51,13 +51,13 @@ export default {
     return {
       tiles: [
         {
-            id: 3,
-            name: "What I use",
-            url: "tools",
-            color: "#3F51B5",
-            img: "/src/assets/images/background/gems2.png",
-            alt: "/src/assets/images/background/gems1.png",
-            corner: "bannerBottomRight",
+            id: 0,
+            name: "Who I am",
+            url: "about",
+            color: "#4CAF50",
+            img: "/src/assets/images/background/web2.png",
+            alt: "/src/assets/images/background/web1.png",
+            corner: "bannerTopLeft",
         },
         {
             id: 1,
@@ -78,22 +78,22 @@ export default {
             corner: "bannerBottomLeft",
         },
         {
-            idy: 0,
-            name: "Who I am",
-            url: "about",
-            color: "#4CAF50",
-            img: "/src/assets/images/background/web2.png",
-            alt: "/src/assets/images/background/web1.png",
-            corner: "bannerTopLeft",
-        }
+            id: 3,
+            name: "What I use",
+            url: "tools",
+            color: "#3F51B5",
+            img: "/src/assets/images/background/gems2.png",
+            alt: "/src/assets/images/background/gems1.png",
+            corner: "bannerBottomRight",
+        },
       ],
     }
   },
-  mounted() {
-    this.$nextTick(function () {
-      this.loading = false;
-    })
-  }
+  // mounted() {
+  //   this.$nextTick(function () {
+  //     this.loading = false;
+  //   })
+  // }
 }
 </script>
 
@@ -223,13 +223,13 @@ a {
 @media (min-width: 768px) {
 
   .footerText {
-    color: white;
+    color: black;
     font-size: 1.5em;
     font-family: 'Open Sans', sans-serif !important;
     font-weight: 0 !important;
 
     a {
-      color: white;
+      color: black;
     }
   }
 
@@ -266,16 +266,20 @@ a {
     }
 
     .credits {
-      background-color: rgba(155, 155, 155, 0.5);
+      background-color: rgba(244, 244, 244, 0.5);
       text-align: left;
       position: absolute;
       left: 3%;
     }
 
     .credits:hover {
-      background-color: rgba(155, 155, 155, 1);
+      //background-color: rgba(244, 244, 244, 1);
+      //background-color: white;
+      -webkit-backdrop-filter: blur(10px); /* Chrome, Safari, Opera */
+      -moz-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       .footerText, a {
-        color: white;
+        color: black;
       }
     }
 

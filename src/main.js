@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
 import VueMq from 'vue-mq';
 import App from './App.vue';
 import VueClazyLoad from 'vue-clazy-load';
@@ -19,9 +20,28 @@ Vue.use(VueMq, {
   }
 });
 
+// const routes = [
+//     { path: '/about', component: AboutContentComponent,
+//       props: { default: true } 
+//     },
+//     { path: '/projects', component: ProjectsContentComponent,
+//       props: { default: true } 
+//     },
+//     { path: '/work', component: ExperienceContentComponent,
+//       props: { default: true } 
+//      },
+//     { path: '/tools', component: SkillsContentComponent,
+//       props: { default: true } 
+//     },
+// ];
+
+// const router = new VueRouter({
+//   routes
+// });
+
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
 });
 
 Vue.use(VueResource);

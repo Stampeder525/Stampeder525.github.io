@@ -40,6 +40,9 @@
                     </div>
                     <!-- <div v-on:click.stop class="ui row description"> -->
                         <div class="ui twelve wide column description">
+                            <h4>Awards and Commendations</h4>
+                            <p v-for="p in j.commendations" :key="p">{{p}}</p>
+                            <h4>Responsibilities</h4>
                             <p v-for="p in j.description" :key="p">{{p}}</p>
                         </div>
                     <!-- </div> -->
@@ -66,11 +69,11 @@ export default {
                     dates: "June-August 2016, June-August 2017, May-August 2018",
                     img: "/src/assets/images/experience/optum_office.png",
                     expanded: false,
-                    description: ["At OPTUM, I and my team won second-place at the 2018 OPTUM Global Hackathon \
+                    commendations: ["At OPTUM, I and my team won second-place at the 2018 OPTUM Global Hackathon \
                                   (First-place at Boston office) for a confidential internal project \
                                   designed to encourage proper health maintenance among children using wearable technology and gamified design. \
-                                  I was responsible for the initial idea, main interface, and back end logic, implemented in Unity3D.", 
-                                  "While working on company projects, I created front-end interfaces using markup, Angular, and jQuery. On the back \
+                                  I was responsible for the initial idea, main interface, and back end logic, implemented in Unity3D."],
+                    description: ["While working on company projects, I created front-end interfaces using markup, Angular, and jQuery. On the back \
                                   end, I accessed, joined, and enriched data tables to feed into ElasticSearch with Pig and Hive. \
                                   I also briefly led my team as Scrum Master, keeping teammates on task, planning meetings, and facilitating \
                                   talks with product owners."]

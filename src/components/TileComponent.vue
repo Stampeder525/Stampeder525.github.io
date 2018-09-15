@@ -34,6 +34,7 @@ export default {
     name: 'TileComponent',
     props: [
         "name",
+        "url",
         "color",
         "corner",
         "img",
@@ -49,6 +50,7 @@ export default {
         expandTile() {
             console.log("expanding!");
             if(!this.tileSelected){
+                // this.$router.push(this.url);
                 this.tileSelected = true;
             }
         },
@@ -102,6 +104,7 @@ export default {
         -moz-transition:  color 0.2s;
         -o-transition:  color 0.2s;
         transition: color 0.2s;
+        //text-shadow: 2px 2px 4px #000000;
     }
 
     .tileContent {
@@ -151,9 +154,6 @@ export default {
         display: block;
         position: absolute;
         bottom: 0;
-        //top: 15vh;
-        //left: 7%;
-        //height: 70vh;
         color: white;
     }
 

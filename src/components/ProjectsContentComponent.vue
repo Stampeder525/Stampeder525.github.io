@@ -3,11 +3,18 @@
         <div class="ui row">
                 <div class="ui three wide column" v-for="p in projects" :key="p.name">
                     <div class="ui card"  v-on:click.stop>
-                        <a class="image" v-bind:href="p.url" rel="noopener" target="_blank">
+                        <a v-if="p.awards" class="medalIcon"><img src="/src/assets/images/projects/medal.png"></a>
+                        <div class="image projectHeader" v-bind:href="p.demoUrl" rel="noopener" target="_blank">
                             <img v-bind:src="p.img">
-                        </a>
+                            <div class="projectHover">
+                                <div class="projectLinks">
+                                    <a target="_blank" rel="noopener" v-if="p.demoUrl" v-bind:href="p.demoUrl"><p>Demo</p></a>
+                                    <a target="_blank" rel="noopener" v-bind:href="p.gitUrl"><i class="huge icon fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="content">
-                            <div class="header"><a v-bind:href="p.url" rel="noopener" target="_blank">{{ p.name }}</a></div>
+                            <div class="header"><a v-bind:href="p.gitUrl" rel="noopener" target="_blank">{{ p.name }}</a></div>
                             <p>{{ p.platform }}</p>
                             <p>{{ p.date }}</p>
                             <div class="ui mini images">
@@ -48,8 +55,29 @@ export default {
         return {
             projects: [
                 {
+                    name: "Asteroid Trampoline",
+                    demoUrl: "/src/games/AsteroidTrampoline/index.html",
+                    gitUrl: "https://github.com/Stampeder525/Asteroid_Trampoline",
+                    platform: "Web Game",
+                    date: "September 2018",
+                    img: "/src/assets/images/projects/asteroidtrampoline.jpg",
+                    description: "Protect earth in this fast paced physics-based arcade game built in Unity3D!",
+                    details: "Protect earth in this fast paced physics-based arcade game built in Unity3D! \
+                              Deflect asteroids hurtling towards the planet with a massive interplanetary space \
+                              trampoline. Bounce them into each other to destroy them and score points.",
+                    expanded: false,
+                    hoverMsg: "Click to Play!",
+                    tech: [
+                        {
+                            "name": "Unity",
+                            "img": "/src/assets/images/logos/unity_logo.png"
+                        }
+                    ]
+                },
+                {
                     name: "HouseMate",
-                    url: "https://github.com/Stampeder525/HouseMate",
+                    demoUrl: "",
+                    gitUrl: "https://github.com/Stampeder525/HouseMate",
                     platform: "Mobile App",
                     date: "September 2017",
                     img: "/src/assets/images/projects/housemate.jpg",
@@ -58,6 +86,7 @@ export default {
                               a time limit to complete them. If failed, it will automatically pull money \
                               from their bank account into a house pool account, which can be used for renovations or events.",
                     expanded: false,
+                    hoverMsg: "Git Repo",
                     tech: [
                         {
                             "name": "React Native",
@@ -71,7 +100,8 @@ export default {
                 },
                 {
                     name: "TalkNess",
-                    url: "https://github.com/ashwinGokhale/CapitalOneTwilio",
+                    demoUrl: "",
+                    gitUrl: "https://github.com/ashwinGokhale/CapitalOneTwilio",
                     platform: "Chat Bot",
                     date: "February 2017",
                     img: "/src/assets/images/projects/talkness.jpg",
@@ -81,6 +111,7 @@ export default {
                               their account; now they can do so through their default texting app. \
                               Check your balance, transfer funds, find nearby ATMS, and more\!",
                     expanded: false,
+                    hoverMsg: "Git Repo",
                     tech: [
                         {
                             "name": "Twilio",
@@ -98,7 +129,8 @@ export default {
                 },
                 {
                     name: "Buzzword Bingo",
-                    url: "https://github.com/Stampeder525/buzzword_bingo",
+                    demoUrl: "/src/games/BuzzwordBingo/index.html",
+                    gitUrl: "https://github.com/Stampeder525/buzzword_bingo",
                     demo: "",
                     platform: "Web App",
                     date: "June 2016",
@@ -108,6 +140,7 @@ export default {
                               'Synergy' again? Cool off with this online multiplayer bingo \
                               game, where each square is an overused buzzword.",
                     expanded: false,
+                    hoverMsg: "Git Repo",
                     tech: [
                         {
                             "name": "Firebase",
@@ -119,32 +152,35 @@ export default {
                         },
                     ]
                 },
-                {
-                    name: "Pushup Ninja",
-                    url: "https://github.com/ronnoceel/pushup-ninja",
-                    platform: "Web App",
-                    date: "January 2016",
-                    img: "/src/assets/images/projects/pushupninja.jpg",
-                    description: "A pushup-tracking app using the Myo Armband.",
-                    details: "Push-Up Ninja is a web app that challenges users to complete \
-                              more push-ups to improve their score, \
-                              while tracking their stats and providing motivational \
-                              feedback.",
-                    expanded: false,
-                    tech: [
-                        {
-                            "name": "Myo",
-                            "img" : "/src/assets/images/logos/myo_logo.png"
-                        },
-                        {
-                            "name": "Javascript",
-                            "img": "/src/assets/images/logos/javascript_logo.png",
-                        },
-                    ]
-                },
+                // {
+                //     name: "Pushup Ninja",
+                //     demoUrl: "",
+                //     gitUrl: "https://github.com/ronnoceel/pushup-ninja",
+                //     platform: "Web App",
+                //     date: "January 2016",
+                //     img: "/src/assets/images/projects/pushupninja.jpg",
+                //     description: "A pushup-tracking app using the Myo Armband.",
+                //     details: "Push-Up Ninja is a web app that challenges users to complete \
+                //               more push-ups to improve their score, \
+                //               while tracking their stats and providing motivational \
+                //               feedback.",
+                //     expanded: false,
+                //     hoverMsg: "Git Repo",
+                //     tech: [
+                //         {
+                //             "name": "Myo",
+                //             "img" : "/src/assets/images/logos/myo_logo.png"
+                //         },
+                //         {
+                //             "name": "Javascript",
+                //             "img": "/src/assets/images/logos/javascript_logo.png",
+                //         },
+                //     ]
+                // },
                 {
                     name: "Highlight",
-                    url: "https://github.com/iRapha/cmd-f",
+                    demoUrl: "",
+                    gitUrl: "https://github.com/iRapha/cmd-f",
                     platform: "iOS App",
                     date: "September 2015",
                     img: "/src/assets/images/projects/highlight.jpg",
@@ -154,6 +190,7 @@ export default {
                               If the app detects that the document is a book, it will direct the user \
                               to the appropriate page.",
                     expanded: false,
+                    hoverMsg: "Git Repo",
                     tech: [
                         {
                             "name": "Swift",
@@ -201,6 +238,67 @@ export default {
     min-height: 53vh;
     min-width: 12vw;
     width: 100%;
+}
+
+.projectHeader{
+    background-color: black !important;
+    .projectHover {
+        display:none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        .projectLinks {
+            //position: relative;
+            margin: 3em auto;
+            text-align: center;
+
+            a, i {
+                color: white;
+            }
+
+            a p:hover, i:hover {
+                color: #4183c4;
+            }
+
+            a p {
+                font-size: 2em;
+                font-weight: bold;
+            }
+        }
+    }
+    img {
+        opacity: 1;
+    }
+}
+
+// .projectHeader {
+//     background-color: black !important;
+// }
+
+.projectHeader:hover {
+    img {
+        opacity: 0.3;
+    } 
+    .projectHover {
+        display: block;
+    }
+}
+
+.medalIcon {
+    position: absolute;
+    top:-15px;
+    left: -15px;
+    z-index: 2;
+    width: 25%;
+    padding: 0;
+    margin: 0;
+    img {
+        width: 100%;
+    }
+
 }
 
 .content p {
