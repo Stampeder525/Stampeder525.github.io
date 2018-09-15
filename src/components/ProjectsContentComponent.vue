@@ -235,7 +235,7 @@ export default {
 <style lang="scss">
 
 .ui .card {
-    min-height: 53vh;
+    min-height: 56vh;
     min-width: 12vw;
     width: 100%;
 }
@@ -292,7 +292,7 @@ export default {
     top:-15px;
     left: -15px;
     z-index: 2;
-    width: 25%;
+    width: 30%;
     padding: 0;
     margin: 0;
     img {
