@@ -58,7 +58,7 @@ export default {
     name: 'ExperienceContentComponent',
     data () {
         return {
-            employmentStatus: "looking for a job",
+            employmentStatus: "looking for employment",
             jobs: [
                 {
                     id: 0,

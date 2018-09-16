@@ -56,7 +56,7 @@ export default {
             projects: [
                 {
                     name: "Asteroid Trampoline",
-                    demoUrl: "/src/games/AsteroidTrampoline/index.html",
+                    demoUrl: "/games/AsteroidTrampoline/",
                     gitUrl: "https://github.com/Stampeder525/Asteroid_Trampoline",
                     platform: "Web Game",
                     date: "September 2018",
@@ -129,7 +129,7 @@ export default {
                 },
                 {
                     name: "Buzzword Bingo",
-                    demoUrl: "/src/games/BuzzwordBingo/index.html",
+                    demoUrl: "/games/BuzzwordBingo/",
                     gitUrl: "https://github.com/Stampeder525/buzzword_bingo",
                     demo: "",
                     platform: "Web App",
