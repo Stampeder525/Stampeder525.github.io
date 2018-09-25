@@ -320,7 +320,7 @@ export default {
         }
 
         .tileContent {
-            top: 5em;
+            top: 6em;
         } 
     }
 

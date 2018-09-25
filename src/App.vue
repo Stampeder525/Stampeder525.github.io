@@ -11,9 +11,9 @@
       </div>
     </div>
     <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
-    <div class="footer">
+    <footer>
         <div class="ui grid">
-          <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated five wide column']">
+          <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated four wide column']">
             <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
             <p class="footerText">Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
           </div>
@@ -27,7 +27,7 @@
             </i>
           </div>
         </div>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -172,7 +172,7 @@ a {
   padding: 1rem !important;
 }
 
-.footer {
+footer {
   position: absolute;
   height: 2em;
   width: 100%;
@@ -233,7 +233,7 @@ a {
     }
   }
 
-  .footer {
+  footer {
     position: absolute;
     height: 5em;
     width: 100%;

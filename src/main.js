@@ -4,13 +4,19 @@ import VueRouter from 'vue-router';
 import VueMq from 'vue-mq';
 import App from './App.vue';
 import VueClazyLoad from 'vue-clazy-load';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 import TileComponent from './components/TileComponent.vue';
 import SkillsContentComponent from './components/SkillsContentComponent.vue';
 import ExperienceContentComponent from './components/ExperienceContentComponent.vue';
 import ProjectsContentComponent from './components/ProjectsContentComponent.vue';
 import AboutContentComponent from './components/AboutContentComponent.vue';
 
+// require styles
+import 'swiper/dist/css/swiper.css'
+
 Vue.use(VueClazyLoad);
+
+Vue.use(VueAwesomeSwiper);
 
 Vue.use(VueMq, {
   breakpoints: {

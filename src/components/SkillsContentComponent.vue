@@ -257,7 +257,7 @@ p{
 
 @media (min-width: 768px){ 
     .ui.relaxed.grid.container {
-        width: 100% !important;
+        width: 98% !important;
         margin: 0 !important;
     }
 }
