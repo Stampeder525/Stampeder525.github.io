@@ -101,11 +101,12 @@ export default {
     .splash, .ui.left.floated.image {
         margin: 0;
         bottom: 0;
+        left: 0;
         z-index: 0;
     }
 
     .ui.left.floated.image {
-        position:absolute;
+        position:fixed;
         left: 0;
         bottom: 0;
     }
