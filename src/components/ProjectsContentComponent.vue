@@ -3,7 +3,7 @@
         <div class="ui row">
             <!-- <swiper :options="swiperOption"> -->
                 <!-- <swiper-slide v-for="p in projects" :key="p.name"> -->
-                    <div class="ui three wide column" v-for="p in projects" :key="p.name">
+                    <div class="ui three wide column" v-for="p in projects" :key="p.name" v-if="!awardsOnly || p.awards">
                         <div class="ui card"  v-on:click.stop>
                             <a v-if="p.awards" class="medalIcon"><img src="/src/assets/images/projects/medal.png"></a>
                             <div class="image projectHeader" v-bind:href="p.demoUrl" rel="noopener" target="_blank">
@@ -36,6 +36,7 @@
                 <div v-if="$mq !== 'sm'" class="swiper-button-next" slot="button-next"></div>
             </swiper> -->
         </div>
+        <div class="awardButton ui huge button" v-on:click="awardsOnly = !awardsOnly">See Awards Only</div>
         <!-- <div class="ui row">
             <div class="ui six wide right floated column">
                 <div class="ui segment" v-on:click.stop>
@@ -281,6 +282,7 @@ export default {
                 },
 
             ],
+            awardsOnly: false,
             swiperOption: {
                 direction: this.sliderIsVertical,
                 // slidesPerView: 5,
@@ -376,7 +378,9 @@ export default {
 
 }
 
-
+.awardButton {
+    margin-bottom: 2em !important;
+}
 
 .content p {
     color: black;
@@ -392,13 +396,13 @@ a {
 
 @media (min-width: 768px) {
     .ui .card {
-        min-height: 59vh;
+        min-height: 60vh;
         max-width: 16vw;
         margin-bottom: 0;
     }
 
     .projectContainer {
-        height: 70vh;
+        height: 65vh;
         .row {
             height: 100%;
         }
