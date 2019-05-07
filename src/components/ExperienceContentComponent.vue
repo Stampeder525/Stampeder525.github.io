@@ -58,7 +58,7 @@ export default {
     name: 'ExperienceContentComponent',
     data () {
         return {
-            employmentStatus: "looking for employment",
+            employmentStatus: "Technology Development Associate at OPTUM",
             jobs: [
                 {
                     id: 0,
