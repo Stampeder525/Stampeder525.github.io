@@ -2,7 +2,7 @@
     <div class="ui relaxed stackable grid container">
         <div class="ui row">
             <div class="ui twelve wide column">
-                <h1 style="padding:0">I am currently: <span class="employmentStatus">{{ employmentStatus }}</span></h1>
+                <h2 style="padding:0">I am currently <span class="employmentStatus">{{ employmentStatus }}</span></h2>
                 <h2 style="padding-bottom: 0.5em">Previously, I've worked at:</h2>
             </div>
         </div>
@@ -58,7 +58,7 @@ export default {
     name: 'ExperienceContentComponent',
     data () {
         return {
-            employmentStatus: "Technology Development Associate at OPTUM",
+            employmentStatus: "a Technology Development Associate at OPTUM",
             jobs: [
                 {
                     id: 0,
