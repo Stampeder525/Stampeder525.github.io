@@ -1,63 +1,40 @@
 <template>
     <div class="projectContainer ui relaxed centered stackable grid container">
         <div class="ui row">
-            <!-- <swiper :options="swiperOption"> -->
-                <!-- <swiper-slide v-for="p in projects" :key="p.name"> -->
-                    <div class="ui three wide column" v-for="p in projects" :key="p.name" v-if="!awardsOnly || p.awards">
-                        <div class="ui card"  v-on:click.stop>
-                            <a v-if="p.awards" class="medalIcon"><img src="/src/assets/images/projects/medal.png"></a>
-                            <div class="image projectHeader" v-bind:href="p.demoUrl" rel="noopener" target="_blank">
-                                <img v-bind:src="p.img">
-                                <div v-if="p.gitUrl || p.demoUrl" class="projectHover">
-                                    <div class="projectLinks">
-                                        <a target="_blank" rel="noopener" v-if="p.demoUrl" v-bind:href="p.demoUrl"><p>Demo</p></a>
-                                        <a target="_blank" rel="noopener" v-bind:href="p.gitUrl"><i class="huge icon fab fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="header"><a v-bind:href="p.gitUrl" rel="noopener" target="_blank">{{ p.name }}</a></div>
-                                <p>{{ p.platform }}</p>
-                                <p>{{ p.date }}</p>
-                                <div class="ui mini images">
-                                    <img class="ui mini circular image" v-bind:title="t.name" v-for="t in p.tech" :key="t.name" v-bind:src="t.img">
-                                </div>
-                                <p v-if="p.awards" v-for="a in p.awards" :key="a.name"><i class="ui star outline icon"></i>{{a.sponsor}} award for {{a.name}}</p>
-                                <div v-if="!p.expanded" class="description">{{ p.description }}</div>
-                                <div v-if="p.expanded" class="description">{{ p.details }}</div>
-                                <div v-if="!p.expanded" class="ui basic mini button" v-on:click="p.expanded = !p.expanded"><i class="angle down icon"></i>More</div>
-                                <div v-if="p.expanded" class="ui basic mini button" v-on:click="p.expanded = !p.expanded"><i class="angle up icon"></i>Less</div>
+            <div class="ui three wide column" v-for="p in projects" :key="p.name">
+                <div class="ui card"  v-on:click.stop>
+                    <!-- <a v-if="p.awards" class="medalIcon"><img src="/src/assets/images/projects/medal.png"></a> -->
+                    <div class="image projectHeader" v-bind:href="p.demoUrl" rel="noopener" target="_blank">
+                        <img v-bind:src="p.img">
+                        <div v-if="p.gitUrl || p.demoUrl" class="projectHover">
+                            <div class="projectLinks">
+                                <a target="_blank" rel="noopener" v-if="p.demoUrl" v-bind:href="p.demoUrl"><p>Demo</p></a>
+                                <a target="_blank" rel="noopener" v-bind:href="p.gitUrl"><i class="huge icon fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
-                <!-- </swiper-slide>
-                <div v-if="$mq !== 'sm'" class="swiper-pagination" slot="pagination"></div>
-                <div v-if="$mq !== 'sm'" class="swiper-button-prev" slot="button-prev"></div>
-                <div v-if="$mq !== 'sm'" class="swiper-button-next" slot="button-next"></div>
-            </swiper> -->
-        </div>
-        <div class="awardButton ui huge button" v-on:click="awardsOnly = !awardsOnly">See Awards Only</div>
-        <!-- <div class="ui row">
-            <div class="ui six wide right floated column">
-                <div class="ui segment" v-on:click.stop>
-                    <div class="ui header">Awards</div>
-                    <div class="awards">
-                        <div class="award" v-for="a in awards" :key="a.name">
-                            <h4>{{a.award}}</h4>
-                            <h4>{{a.project}}</h4>
-                            <h5>Sponsored by {{a.sponsor}}</h5>
-                            <h5>{{a.event}}</h5>
-                            <h5>{{a.date}}</h5>
+                    <div class="content">
+                        <div class="header"><a v-bind:href="p.gitUrl" rel="noopener" target="_blank">{{ p.name }}</a></div>
+                        <p>{{ p.platform }}</p>
+                        <p>{{ p.date }}</p>
+                        <div class="ui mini images">
+                            <img class="ui mini circular image" v-bind:title="t.name" v-for="t in p.tech" :key="t.name" v-bind:src="t.img">
                         </div>
+                        <!-- <div v-if="p.awards" v-for="a in p.awards" :key="a.name"><i class="ui star outline icon"></i>{{a.sponsor}} award for {{a.name}}</div> -->
+                        <div v-if="!p.expanded" class="description">{{ p.description }}</div>
+                        <div v-if="p.expanded" class="description">{{ p.details }}</div>
+                        <div v-if="!p.expanded" class="ui basic mini button" v-on:click="p.expanded = !p.expanded"><i class="angle down icon"></i>More</div>
+                        <div v-if="p.expanded" class="ui basic mini button" v-on:click="p.expanded = !p.expanded"><i class="angle up icon"></i>Less</div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
 <script>
 
+import { slider, slideritem } from 'vue-concise-slider'
 export default {
     name: 'ProjectsContentComponent',
     data () {
@@ -184,55 +161,6 @@ export default {
                         }
                     ]
                 },
-                // {
-                //     name: "Buzzword Bingo",
-                //     demoUrl: "",
-                //     gitUrl: "https://github.com/Stampeder525/buzzword_bingo",
-                //     demo: "",
-                //     platform: "Web App",
-                //     date: "June 2016",
-                //     img: "/src/assets/images/projects/buzzwordbingo.jpg",
-                //     description: "A multiplayer bingo game for meetings that go on too long.",
-                //     details: "Stuck in another corporate meeting? Did your boss just say \
-                //               'Synergy' again? Cool off with this online multiplayer bingo \
-                //               game, where each square is an overused buzzword.",
-                //     expanded: false,
-                //     hoverMsg: "Git Repo",
-                //     tech: [
-                //         {
-                //             "name": "Firebase",
-                //             "img" : "/src/assets/images/logos/firebase_logo.png"
-                //         },
-                //         {
-                //             "name": "jQuery",
-                //             "img": "/src/assets/images/logos/jquery_logo_2.png",
-                //         },
-                //     ]
-                // },
-                // {
-                //     name: "Pushup Ninja",
-                //     demoUrl: "",
-                //     gitUrl: "https://github.com/ronnoceel/pushup-ninja",
-                //     platform: "Web App",
-                //     date: "January 2016",
-                //     img: "/src/assets/images/projects/pushupninja.jpg",
-                //     description: "A pushup-tracking app using the Myo Armband.",
-                //     details: "Push-Up Ninja is a web app that challenges users to complete \
-                //               more push-ups to improve their score, \
-                //               while tracking their stats and providing motivational \
-                //               feedback.",
-                //     expanded: false,
-                //     tech: [
-                //         {
-                //             "name": "Myo",
-                //             "img" : "/src/assets/images/logos/myo_logo.png"
-                //         },
-                //         {
-                //             "name": "Javascript",
-                //             "img": "/src/assets/images/logos/javascript_logo.png",
-                //         },
-                //     ]
-                // },
                 {
                     name: "Highlight",
                     demoUrl: "",
@@ -282,29 +210,18 @@ export default {
                 },
 
             ],
+            options: {
+                currentPage: 0,
+                infinite: 4,
+                slidesToScroll: 4,
+                loop: true
+            },
             awardsOnly: false,
-            swiperOption: {
-                direction: this.sliderIsVertical,
-                // slidesPerView: 5,
-                // spaceBetween: 5,
-                // slidesPerGroup: 5,
-                // loop: false,
-                // loopFillGroupWithBlank: false,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                },
-                // navigation: {
-                //     nextEl: '.swiper-button-next',
-                //     prevEl: '.swiper-button-prev'
-                // }
-            }
         }
     },
-    computed: {
-        sliderIsVertical() {
-            this.$mq === 'sm' ? 'vertical' : 'horizontal';
-        }
+    components: {
+        slider,
+        slideritem
     }
 }
 </script>
@@ -364,19 +281,19 @@ export default {
     }
 }
 
-.medalIcon {
-    position: absolute;
-    top:-15px;
-    left: -15px;
-    z-index: 3;
-    width: 30%;
-    padding: 0;
-    margin: 0;
-    img {
-        width: 100%;
-    }
+// .medalIcon {
+//     position: absolute;
+//     top:-15px;
+//     left: -15px;
+//     z-index: 3;
+//     width: 30%;
+//     padding: 0;
+//     margin: 0;
+//     img {
+//         width: 100%;
+//     }
 
-}
+// }
 
 .awardButton {
     margin-bottom: 2em !important;

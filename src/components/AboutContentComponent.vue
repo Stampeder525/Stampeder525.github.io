@@ -4,11 +4,11 @@
             <div noselect class="ui left floated image">
                 <img noselect class="splash" v-bind:src="splashImg">
             </div>
-            <div slot="placeholder"><i class="notched circle loading icon"></i></div>
+            <div class="loader" slot="placeholder"><i class="notched circle loading icon"></i></div>
         </clazy-load>
         <div class="ui grid">
             <div class="row descriptorRow">
-                <div class="ui right floated ten wide column">
+                <div class="ui right floated twelve wide column">
                     <div class="descriptors">
                         <h2 v-for="d in descriptors" :key="d">{{ d }}</h2>
                     </div>
@@ -19,7 +19,12 @@
                     <p v-html="p" v-for="p in description" :key="p" v-on:click.stop>{{ p }}</p>
                 </div>
             </div>
-            <div class="row contact">
+            <div class="row resume">
+                <div class="ui right floated ten wide column">
+                    <a href="/src/assets/documents/resume.pdf" target="_blank" rel="noopener" class="ui button">Resume</a>
+                </div>
+            </div>
+            <!-- <div class="row contact">
                 <div class="ui right floated ten wide column">
                     <h3>Get in touch</h3>
                     <form class="ui small form" action="https://formspree.io/lorenheubertaubry@gmail.com" method="POST" v-on:click.stop>
@@ -44,7 +49,7 @@
                         <button type="submit" class="ui submit button">Submit</button>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -56,17 +61,17 @@ export default {
         return {
             splashImg: "/src/assets/images/about/loren_expanded_sky.png",
             descriptors: [
-                "Programmer.",
-                "Designer.",
+                "Loren Heubert-Aubry.",
+                "Full Stack Engineer,",
+                "Designer,",
                 "Game Developer.",
-                "Innovator."
             ],
-            description: ["Hi there! I'm a software engineer and recent Bachelor's graduate in Information & Computer Science from the University of Michigan, class of 2018.", 
-                          "I'm a strong believer in knowing your products holistically from blueprint to market — to understand the back end infrastructure, \
+            description: ["Hi there! I'm a software engineer with a Bachelor's in Information & Computer Science from the University of Michigan, class of 2018.", 
+                          "I'm a strong believer in knowing my products holistically from blueprint to customer — to understand the back end infrastructure, \
                           but also the space it occupies. How will people use this? Why? How will it work, how will it look, and \
-                          what implications will it have for the people who use it?", "When I'm not coding, you can find me \
-                          hiking, gaming, or writing for <a href=\"http://everythreeweekly.com/\" \
-                          rel=\"noopener\" target=\"_blank\" style=\"color: white; text-decoration: underline\">my school's satire newspaper.</a>"
+                          what implications will it have for the people who use it?", "When I'm not at work, you can find me \
+                          hiking, gaming, or writing <a href=\"https://wholewheatpost.com/\" \
+                          rel=\"noopener\" target=\"_blank\" style=\"color: white; text-decoration: underline\">online satire.</a>"
                           ],
             contact: {
                 name: "",
@@ -126,9 +131,15 @@ export default {
         padding-top: 0 !important;
     }
 
+    .resume {
+        margin-top: 2em;
+        margin-bottom: 3em !important;
+    }
+
     .descriptorRow {
         padding-bottom: 0 !important;
         padding-top: 0 !important;
+        text-align: right;
     }
 
     h2 {
@@ -147,6 +158,12 @@ export default {
     .grid {
         margin-left: -5em!important;
         //margin-right: 0;
+    }
+
+    .loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
     }
 
     .ui.left.floated.ten.wide.column {

@@ -220,9 +220,9 @@ export default {
     } 
 }
 
-.ui.grid > * {
-    padding: 0 !important;
-}
+// .ui.grid > * {
+//     padding: 0 !important;
+// }
 
 
 @media (min-width: 768px) {

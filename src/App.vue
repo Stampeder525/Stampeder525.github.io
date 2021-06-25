@@ -6,24 +6,69 @@
       <h2 style="color:black">Welcome!</h2>
     </div> -->
     <div id="tiles">
-      <div class="ui stackable grid container" style="margin:0 !important; width: 100vw !important; height:100vh !important;">
-          <tile-component tabindex="0" :class="tile.corner" v-for="tile in tiles" :key="tile.name" v-bind:id="tile.url" v-bind:name="tile.name" v-bind:color="tile.color" v-bind:corner="tile.corner" v-bind:img="tile.img" v-bind:alt="tile.alt"></tile-component>
+      <div 
+        class="ui stackable grid container" 
+        style="margin:0 !important; width: 100vw !important; height:100vh !important;"
+      >
+          <tile-component 
+            tabindex="0" 
+            :class="tile.corner" 
+            v-for="tile in tiles" 
+            :key="tile.name" 
+            v-bind:id="tile.url" 
+            v-bind:name="tile.name" 
+            v-bind:color="tile.color" 
+            v-bind:corner="tile.corner" 
+            v-bind:img="tile.img" 
+            v-bind:alt="tile.alt"
+            >
+            </tile-component>
       </div>
     </div>
     <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
     <footer>
         <div class="ui grid">
-          <div class="credits" v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated four wide column']">
-            <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
-            <p class="footerText">Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/fergusonillustration">Anna Ferguson</a></p>
+          <div 
+            class="credits" 
+            v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated four wide column']"
+          >
+            <div style="padding-left:3%; padding-right:3%">
+              <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
+              <p class="footerText">Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/wyervanart">Anna Ferguson</a></p>
+            </div>
           </div>
-          <!-- <div class="ui column helpMessage">
-            <p class="footerText">Click any tile to expand</p>
-          </div> -->
           <div class="ui right floated four wide column">
             <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'big icons' : 'huge icons']">
-              <a tabindex="0" href="https://github.com/Stampeder525" value="github" target="_blank" rel="noopener" alt="Github"><i class="fab fa-github"></i></a>
-              <a  tabindex="0" href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" value="linkedin" target="_blank" rel="noopener" alt="Linkedin"><i class="fab fa-linkedin"></i></a>
+              <a 
+                tabindex="0" 
+                href="https://github.com/Stampeder525" 
+                value="github" 
+                target="_blank" 
+                rel="noopener" 
+                alt="Github"
+              >
+                <i class="fab fa-github"/>
+              </a>
+              <a 
+                tabindex="0" 
+                href="https://www.linkedin.com/in/loren-heubert-aubry-465818ab/" 
+                value="linkedin" 
+                target="_blank" 
+                rel="noopener" 
+                alt="Linkedin"
+                >
+                  <i class="fab fa-linkedin"/>
+                </a>
+                <a 
+                  tabindex="0" 
+                  href="https://stampeder525.itch.io/" 
+                  value="itch.io" 
+                  target="_blank" 
+                  rel="noopener" 
+                  alt="Itch.io"
+                >
+                  <i class="fab fa-itch-io"/>
+                </a>
             </i>
           </div>
         </div>
@@ -174,15 +219,17 @@ a {
 
 footer {
   position: absolute;
-  height: 2em;
+  height: 4em;
   width: 100%;
-  bottom: 0;
+  bottom: 3%;
   pointer-events: none;
+  padding: 2em;
 
   .profileLinks {
     text-align: right;
     right: 26%;
     position:absolute;
+    padding: 0.1em;
     border-radius:10px;
     pointer-events: all !important;
 
@@ -207,6 +254,7 @@ footer {
     left: 8%;
     border-radius:10px;
     pointer-events: all !important;
+    display: border-box;
     background-color: rgba(155, 155, 155, 0.5);
 
   }
@@ -237,7 +285,7 @@ footer {
     position: absolute;
     height: 5em;
     width: 100%;
-    bottom: 0;
+    bottom: 3%;
 
     .profileLinks {
       background-color: rgba(155, 155, 155, 0.5);
