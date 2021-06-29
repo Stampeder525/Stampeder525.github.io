@@ -12,7 +12,7 @@
                     <div class="ui row">
                         <div class="ui four wide column">
                             <div class="companyName">
-                                <a v-bind:href="j.url" target="_blank" rel="noopener"><h1 class="companyName">{{j.company}}</h1></a>
+                                <a :href="j.url" target="_blank" rel="noopener"><h1 class="companyName">{{j.company}}</h1></a>
                             </div>
                         </div>
                         <div class="jobDetails ui eight wide column">

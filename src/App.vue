@@ -15,12 +15,12 @@
             :class="tile.corner" 
             v-for="tile in tiles" 
             :key="tile.name" 
-            v-bind:id="tile.url" 
-            v-bind:name="tile.name" 
-            v-bind:color="tile.color" 
-            v-bind:corner="tile.corner" 
-            v-bind:img="tile.img" 
-            v-bind:alt="tile.alt"
+            :id="tile.url" 
+            :name="tile.name" 
+            :color="tile.color" 
+            :corner="tile.corner" 
+            :img="tile.img" 
+            :alt="tile.alt"
             >
             </tile-component>
       </div>
@@ -30,7 +30,7 @@
         <div class="ui grid">
           <div 
             class="credits" 
-            v-bind:class="[($mq === 'sm') ? 'ui left floated eight wide column' : 'ui left floated four wide column']"
+            :class="[($mq === 'tablet') ? 'ui left floated eight wide column' : 'ui left floated four wide column']"
           >
             <div style="padding-left:3%; padding-right:3%">
               <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="ui right floated four wide column">
-            <i class="profileLinks" v-bind:class="[($mq === 'sm') ? 'big icons' : 'huge icons']">
+            <i class="profileLinks" :class="[($mq === 'tablet') ? 'big icons' : 'huge icons']">
               <a 
                 tabindex="0" 
                 href="https://github.com/Stampeder525" 

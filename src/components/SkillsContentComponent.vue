@@ -14,12 +14,12 @@
                     <div class="ui images skillBorder">
                         <div 
                             v-for="l in languages" 
-                            v-bind:key="l.name" 
+                            :key="l.name" 
                             class="ui column hvr-float skillbox"
-                            v-bind:class="l.level"
+                            :class="l.level"
                         >
-                            <clazy-load v-bind:src="l.img">
-                                <img class="ui tiny rounded image" v-bind:src="l.img" v-on:click.stop>
+                            <clazy-load :src="l.img">
+                                <img class="ui tiny rounded image" :src="l.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ l.name }}</p>
@@ -37,12 +37,12 @@
                     <div class="ui images skillBorder">
                         <div 
                             v-for="t in tools" 
-                            v-bind:key="t.name" 
+                            :key="t.name" 
                             class="column hvr-float skillbox"
-                            v-bind:class="t.level"
+                            :class="t.level"
                         >
-                            <clazy-load v-bind:src="t.img">
-                                <img class="ui tiny rounded image" v-bind:src="t.img" v-on:click.stop>
+                            <clazy-load :src="t.img">
+                                <img class="ui tiny rounded image" :src="t.img" v-on:click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ t.name }}</p>
