@@ -23,6 +23,10 @@ Vue.use(VueMq, {
     sm: 767,
     md: 900,
     lg: Infinity,
+    mobile: 450,
+    tablet: 900,
+    laptop: 1280,
+    desktop: Infinity
   }
 });
 

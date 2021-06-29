@@ -1,6 +1,7 @@
 node_modules
 semantic/
-.package-lock.json
+package-lock.json
 .gitattributes
-
-
+.editorconfig
+.jshintrc
+.babelrc

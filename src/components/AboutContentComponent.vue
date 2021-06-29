@@ -1,16 +1,21 @@
 <template>
     <div class="ui container">
-        <clazy-load noselect v-bind:src="splashImg">
+        <clazy-load noselect :src="splashImg">
             <div noselect class="ui left floated image">
-                <img noselect class="splash" v-bind:src="splashImg">
+                <img noselect class="splash" :src="splashImg">
             </div>
             <div class="loader" slot="placeholder"><i class="notched circle loading icon"></i></div>
         </clazy-load>
         <div class="ui grid">
             <div class="row descriptorRow">
-                <div class="ui right floated twelve wide column">
-                    <div class="descriptors">
-                        <h2 v-for="d in descriptors" :key="d">{{ d }}</h2>
+                <div class="ui right floated ten wide column">
+                    <div class="left floated three wide column">
+                        <h2>Loren Heubert-Aubry.</h2>
+                    </div>
+                    <div class="ui right floated seven wide column">
+                        <div class="descriptors">
+                            <h2 v-for="d in descriptors" :key="d">{{ d }}</h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,32 +29,6 @@
                     <a href="/src/assets/documents/resume.pdf" target="_blank" rel="noopener" class="ui button">Resume</a>
                 </div>
             </div>
-            <!-- <div class="row contact">
-                <div class="ui right floated ten wide column">
-                    <h3>Get in touch</h3>
-                    <form class="ui small form" action="https://formspree.io/lorenheubertaubry@gmail.com" method="POST" v-on:click.stop>
-                        <div class="required field" style="display:inline-block;">
-                            <label>Name</label>
-                            <input name="name" placeholder="Jane Doe" type="text">
-                        </div>
-                        <input type="hidden" name="_subject" value="Your site visitor has sent you a message!" />
-                        <div class="required field" style="display:inline-block;">
-                            <label>Email</label>
-                            <input name="_replyto" placeholder="janedoe@email.com" type="email">
-                        </div>
-                        <div class="required field">
-                            <label>Message</label>
-                            <textarea name="message" placeholder="Write a message here!" rows="2"></textarea>
-                        </div>
-                        <div class="ui success message">
-                            <div class="header">Message Sent!</div>
-                        </div>
-                        <input type="hidden" name="_next" value="https://lorenha.me" />
-                        <input type="text" name="_gotcha" style="display:none" value="gotcha!" />
-                        <button type="submit" class="ui submit button">Submit</button>
-                    </form>
-                </div>
-            </div> -->
         </div>
     </div>
 </template>
@@ -61,7 +40,6 @@ export default {
         return {
             splashImg: "/src/assets/images/about/loren_expanded_sky.png",
             descriptors: [
-                "Loren Heubert-Aubry.",
                 "Full Stack Engineer,",
                 "Designer,",
                 "Game Developer.",
@@ -139,7 +117,7 @@ export default {
     .descriptorRow {
         padding-bottom: 0 !important;
         padding-top: 0 !important;
-        text-align: right;
+        text-align: left;
     }
 
     h2 {

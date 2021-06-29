@@ -1,13 +1,13 @@
 <!-- TileComponent.vue -->
 <template>
 
-<div class="tile" v-on:mouseenter="invertBackground" v-on:mouseleave="resetBackground" v-bind:style="{backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', backgroundColor: tileSelected ? color : 'transparent', cursor: tileSelected ? 'default':'pointer'}" v-bind:class="{ tileDetails: tileSelected }">
-    <div class="backButton" v-bind:class="[($mq === 'sm') ? '':'hvr-float']" v-if="tileSelected" v-on:click="shrinkTile()">
+<div class="tile" v-on:mouseenter="invertBackground" v-on:mouseleave="resetBackground" :style="{backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', backgroundColor: tileSelected ? color : 'transparent', cursor: tileSelected ? 'default':'pointer'}" :class="{ tileDetails: tileSelected }">
+    <div class="backButton" :class="[($mq === 'tablet') ? '':'hvr-float']" v-if="tileSelected" v-on:click="shrinkTile()">
         <i class="ui big left arrow icon"></i>
         <p>Back</p>
     </div>
     <div class="banner" v-on:click="expandTile()">
-        <h1 class="title" v-bind:style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
+        <h1 class="title" :style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
         <div class="tileContent">
             <skills-content-component noselect v-if="name == 'What I use'"></skills-content-component>
             <experience-content-component v-if="name == 'Where I work'"></experience-content-component>
@@ -48,14 +48,12 @@ export default {
     },
     methods: {
         expandTile() {
-            console.log("expanding!");
             if(!this.tileSelected){
                 // this.$router.push(this.url);
                 this.tileSelected = true;
             }
         },
         shrinkTile(){
-            console.log("Shrinking!");
             this.tileSelected = false;
             setTimeout(50);
         },
@@ -296,7 +294,7 @@ export default {
         }
 
         .tileContent {
-            top: 5em;
+            top: 10%;
         } 
     }
 
@@ -320,7 +318,7 @@ export default {
         }
 
         .tileContent {
-            top: 6em;
+            top: 10%;
         } 
     }
 
@@ -345,7 +343,7 @@ export default {
         }
 
         .tileContent {
-            top: 8em;
+            top: 10%;
         } 
     }
 
@@ -369,7 +367,7 @@ export default {
         }   
 
         .tileContent {
-            top: 8em;
+            top: 10%;
         } 
     }
 
