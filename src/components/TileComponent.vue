@@ -80,8 +80,9 @@ export default {
     position: absolute;
     width:100vw;
     height: 25vh;
-    //border: 2em solid;
+    // border: 2em solid;
     background-size: cover;
+    // background-size: 100px 100px;
     background-repeat:   no-repeat;
     background-position: center center;
 
@@ -223,7 +224,7 @@ export default {
 // }
 
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
 
     .tile {
         z-index: 0;

@@ -1,51 +1,37 @@
 <template>
-    <div class="ui relaxed stackable grid container">
-        <div class="ui row">
-            <div class="ui twelve wide column">
-                <h2 style="padding:0">I am currently <span class="employmentStatus">{{ employmentStatus }}</span></h2>
-                <h2 style="padding-bottom: 0.5em">Previously, I've worked at:</h2>
+    <div class="jobView">
+        <div class="ui relaxed stackable grid container">
+            <div class="ui column" :class="[($mq !== 'tablet') ? 'four wide' : 'ten wide']"">
+                <div class="ui secondary pointing menu" :class="[($mq !== 'tablet') && 'vertical']">
+                    <a 
+                        class="item white" 
+                        v-for="j in jobs" 
+                        :key="j.id"
+                        :id="j.id"
+                        @click="e => selectJob(e)"
+                        :class="selectedJob.id == j.id && 'active'"
+                    >
+                        {{j.company.toUpperCase()}}
+                    </a>
+                </div>
             </div>
-        </div>
-        <div v-for="j in jobs" :key="j.id" class="ui row">
-            <div class="ui fourteen wide column">
-                <div class="ui stackable grid">
-                    <div class="ui row">
-                        <div class="ui four wide column">
-                            <div class="companyName">
-                                <a :href="j.url" target="_blank" rel="noopener"><h1 class="companyName">{{j.company}}</h1></a>
-                            </div>
-                        </div>
-                        <div class="jobDetails ui eight wide column">
-                            <div class="ui list">
-                                <div class="item">
-                                    <i class="id badge outline icon"></i>
-                                    <div class="content">
-                                        {{j.position}}
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <i class="marker icon"></i>
-                                    <div class="content">
-                                        {{j.location}}
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <i class="calendar outline icon"></i>
-                                    <div class="content">
-                                        {{j.dates}}
-                                    </div>
-                                </div>
-                            </div>
+            <div class="ui eight wide column grid">
+                <h2 class="ui header white verticalMargin0">{{selectedJob.position}}</h2>
+                    <div class="verticalMargin0">
+                        <h2 class="ui medium white header verticalMargin0">{{selectedJob.company}}, 
+                            <span class="jobDates">{{selectedJob.dates}}</span></h2> 
+                    </div>
+            <div class="ui row">
+                    <div class="ui list">
+                        <div 
+                            class="item"
+                            v-for="(p, index) in selectedJob.description"
+                            :key="index"
+                        >
+                            <i class="icon caret right"></i>
+                            <div class="content descriptionText">{{p}}</div>
                         </div>
                     </div>
-                    <!-- <div v-on:click.stop class="ui row description"> -->
-                        <div class="ui twelve wide column description">
-                            <h4>Awards and Commendations</h4>
-                            <p v-for="p in j.commendations" :key="p">{{p}}</p>
-                            <h4>Responsibilities</h4>
-                            <p v-for="p in j.description" :key="p">{{p}}</p>
-                        </div>
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -58,27 +44,58 @@ export default {
     name: 'ExperienceContentComponent',
     data () {
         return {
-            employmentStatus: "a Technology Development Associate at OPTUM",
+            selectedJob: {},
             jobs: [
                 {
                     id: 0,
-                    company: "OPTUM",
+                    company: "Optum",
+                    url: "https://www.optum.com/",
+                    position: "Software Engineer",
+                    location: "Boston, MA",
+                    dates: "June 2019 - Present",
+                    description: ["Develop front-end features and automated tests for online insurance plan testing platform in React, \
+                                    allowing readiness teams to prepare customers for peak season.", "Leading implementation of full \
+                                    accessibility audits on production-ready code throughout organization, targeting 100% compliance \
+                                    with WCAG 2.0.", "Leveraged Golang to create early notification center server pipeline and API, \
+                                    allowing customers to receive regular updates on the status of their testing members and plans.", 
+                                    "Developed features for internal claims processing engine in Java, reducing feature time to deploy by 15%."]
+                },
+                {
+                    id: 1,
+                    company: "CHEPS",
+                    url: "https://cheps.engin.umich.edu/",
+                    position: "Software Engineer",
+                    location: "Boston, MA",
+                    dates: "September 2018 - December 2018",
+                    description: ["Led full-stack development in React, NodeJS, and MySQL Database to create web application for tracking surgical \
+                    instrument cleanliness.", "Led ground-up UX redesign for surgical instruments application to better fit with hospital staff  \
+                    mental models.", "Leveraged design thinking to oversee user testing sessions and create hand-made paper prototypes.",
+                    "Implemented design documentation plan and wrote project reports, reducing future onboarding time by over 90%."]
+                },
+                {
+                    id: 2,
+                    company: "Optum",
                     url: "https://www.optum.com/",
                     position: "Software Development Intern",
                     location: "Boston, MA",
                     dates: "June-August 2016, June-August 2017, May-August 2018",
-                    img: "/src/assets/images/experience/optum_office.png",
-                    expanded: false,
-                    commendations: ["At OPTUM, I and my team won second-place at the 2018 OPTUM Global Hackathon \
-                                  (First-place at Boston office) for a confidential internal project \
-                                  designed to encourage proper health maintenance among children using wearable technology and gamified design. \
-                                  I was responsible for the initial idea, main interface, and back end logic, implemented in Unity3D."],
-                    description: ["While working on company projects, I created front-end interfaces using markup, Angular, and jQuery. On the back \
-                                  end, I accessed, joined, and enriched data tables to feed into ElasticSearch with Pig and Hive. \
-                                  I also briefly led my team as Scrum Master, keeping teammates on task, planning meetings, and facilitating \
-                                  talks with product owners."]
+                    description: ["Managed development of custom Kibana plugin using AngularJS and jQuery to enrich and extend data-analysis \
+                                    capabilities for the team.", "Worked with Elastic vendors to discuss integration of custom plugin into core product.",
+                                    "Led team as Scrum Master, keeping teammates on task using Trello, running PIs, and managing product owner \
+                                    expectations.", "Developed behavioral logic and main interface for internal project using gamified design and \
+                                    wearable technology to encourage maintenance of chronic conditions among children. Won 2nd place at the 2018 Optum \
+                                    Global Hackathon. Collaborated with legal team to write and submit patent application."]
                 },
-            ]
+            ],
+        }
+    },
+    mounted() {
+        this.selectedJob = this.jobs[0];
+    },
+    methods: {
+        selectJob(event) {
+            const job = this.jobs.find(j => j.id == event.target.id);
+            this.selectedJob = job;
         }
     },
 }
@@ -87,125 +104,78 @@ export default {
 <style lang="scss">
 
 #work {
-    .grid {
-            margin: 0 0.5 !important;
-    }
 
-    .pastExperience {
-        border: 4px solid white;
-        border-radius: 10px;
-        height: 100%;
-        width: 50%;
-    }
+    .menu, .active {
+        border-left-style: none;
+        border-left-width: 0px;
 
-    .tileContent {
-        position: relative;
-        width: 100%;
-
-        .detailsButton {
-            z-index: 2;
-            position:absolute;
-            bottom:0;
-            display: inline-block;
-            min-height: 1em;
-            width: 10em;
-            cursor: pointer;
-
-            i {
-                display: inline-block;
-                margin-bottom: 0.5em !important;
-            }
-
-            h2 {
-                opacity: 0;
-                display: inline-block;
-                padding-bottom: 0;
-
-                -webkit-transition: opacity 0.2s;
-                -moz-transition: opacity 0.2s;
-                -o-transition: opacity 0.2s;
-                transition: opacity 0.2s;
-            }
-        }
-
-        .more {
-            left: 0;
-        }
-
-        .less {
-            right: 0;
-            height: 100%;
-        }
-
-        .detailsButton:hover h2 {
-            opacity: 100;
-        }
-
-    }
-
-    .ui.list {
-        margin-top: 1.5em !important;
-    }
-
-    .companyName {
-        //width: 100%;
-        a{
-            color: white;
-        }
-        h1 {
-            font-size: 5em;
-            padding: 0 !important;
+        :active {
+            border-left-style: none;
+            border-left-width: 0px;
+            border-color: white;
         }
     }
 
-    .item, .description {
-        font-family: 'Open Sans', sans-serif;
-
-        p {
-            font-size: 1.4em;
-        }
+    .active {
+        border-color: white;
+        outline-offset: -3px;
     }
 
-    .description {
-        margin-top: 2% !important;
+    .menu {
+        border-left-color: rgba(34,36,38,.15);
     }
 
-    .expander{
-        .four.wide.column {
-            height: 100%;
-        }
+    .white {
+        color: white;
     }
 
-    .jobDetails {
-        margin-left: 2%;
+    .jobView {
+        margin-top: 10%;
+        margin-right: 5%;
+        margin-left: 5%;
     }
 
-    .employmentStatus {
-        font-weight: bold;
-        color: #FFEB3B;
+    .verticalMargin0 {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+
     }
 
-    .icon {
-        margin: 0 !important;
+    .jobMeta {
+        // vertical-align: text-bottom;
+        display: block;
     }
 
-    .officeImg {
-        height: 100%;
-        position:absolute;
-        right:0;
-        top:0;
-        img {
-            //width: 100%;
-            height: 100% !important;
-        }
+    .jobDates {
+        font-size: 0.8em;
+        margin-left: 1em;
+    }
+
+    .descriptionText {
+        font-size: 1.1em;
     }
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     #work {
-        .grid {
-            margin: 0 1 !important;
+        // .grid {
+        //     margin: 0 1 !important;
+        // }
+
+        .menu, .active {
+            border-right: none !important;
+            border-left-style: solid;
+            border-left-width: 2px;
+
+            :active {
+                border-right: none !important;
+                border-color: white;
+                border-left-style: solid;
+                border-left-width: 2px;
+                outline-offset: 3px;
+            }
         }
     }
 

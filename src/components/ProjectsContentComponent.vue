@@ -278,7 +278,7 @@ a {
         height: 65vh;
     }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .ui .card {
         max-width: 20vw;
         margin-bottom: 0;

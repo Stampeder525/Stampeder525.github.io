@@ -1,9 +1,11 @@
 <template>
     <div class="ui relaxed left aligned padded stackable grid container">
         <div class="ui one column row">
-            <div class="ui label levelLegend" style="backgroundColor:#A3D585">Advanced</div>
-            <div class="ui label levelLegend" style="backgroundColor:#EED059">Intermediate</div>
-            <div class="ui label levelLegend" style="backgroundColor:#E26350">Novice</div>
+            <div class="ui four wide column">
+                <div class="ui label levelLegend" style="backgroundColor:#A3D585">Advanced</div>
+                <div class="ui label levelLegend" style="backgroundColor:#EED059">Intermediate</div>
+                <div class="ui label levelLegend" style="backgroundColor:#E26350">Novice</div>
+            </div>
         </div>
         <div class="ui two column row">
             <div class="ui three wide column">
@@ -263,7 +265,7 @@ p{
 }
 
 
-@media (min-width: 768px){ 
+@media (min-width: 900px){ 
     .ui.relaxed.grid.container {
         width: 98% !important;
         margin: 0 !important;

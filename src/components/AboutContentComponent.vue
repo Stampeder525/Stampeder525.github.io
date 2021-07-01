@@ -24,9 +24,26 @@
                     <p v-html="p" v-for="p in description" :key="p" v-on:click.stop>{{ p }}</p>
                 </div>
             </div>
-            <div class="row resume">
+            <div class="row contact">
                 <div class="ui right floated ten wide column">
-                    <a href="/src/assets/documents/resume.pdf" target="_blank" rel="noopener" class="ui button">Resume</a>
+                    <a 
+                        href="/src/assets/documents/resume.pdf" 
+                        target="_blank" 
+                        rel="noopener" 
+                        class="ui button"
+                        title="Download Resume"
+                    >
+                        Resume
+                    </a>
+                    <a 
+                        href="mailto:lorenheubertaubry@gmail.com" 
+                        target="_blank" 
+                        rel="noopener" 
+                        class="ui button"
+                        title="Email Me"
+                    >
+                        Get in Touch
+                    </a>
                 </div>
             </div>
         </div>
@@ -73,10 +90,10 @@ export default {
 //@import url('https://fonts.googleapis.com/css?family=family=Open+Sans:300');
 
 #about {
+    
     .container {
         width: 93%;
         height: 85vh;
-        //margin-right: 5.5em!important;
     }
 
     .splash, .ui.left.floated.image {
@@ -109,7 +126,7 @@ export default {
         padding-top: 0 !important;
     }
 
-    .resume {
+    .contact {
         margin-top: 2em;
         margin-bottom: 3em !important;
     }
@@ -169,7 +186,7 @@ export default {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     #about{
         .grid {
             margin-left: 0!important;

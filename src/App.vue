@@ -30,7 +30,7 @@
         <div class="ui grid">
           <div 
             class="credits" 
-            :class="[($mq === 'tablet') ? 'ui left floated eight wide column' : 'ui left floated four wide column']"
+            :class="[($mq === 'tablet') ? 'ui left floated eight wide column' : 'ui left floated five wide column']"
           >
             <div style="padding-left:3%; padding-right:3%">
               <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
@@ -46,6 +46,7 @@
                 target="_blank" 
                 rel="noopener" 
                 alt="Github"
+                title="Github"
               >
                 <i class="fab fa-github"/>
               </a>
@@ -56,6 +57,7 @@
                 target="_blank" 
                 rel="noopener" 
                 alt="Linkedin"
+                title="Linkedin"
                 >
                   <i class="fab fa-linkedin"/>
                 </a>
@@ -66,6 +68,7 @@
                   target="_blank" 
                   rel="noopener" 
                   alt="Itch.io"
+                  title="Itch.io"
                 >
                   <i class="fab fa-itch-io"/>
                 </a>
@@ -160,6 +163,7 @@ export default {
 
 body {
     background-image: url("assets/images/background/dust_scratches.jpg");
+    // background-color: black;
     overflow-x: hidden;
 }
 
@@ -268,7 +272,7 @@ footer {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
 
   .footerText {
     color: black;
