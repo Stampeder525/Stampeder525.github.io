@@ -1,7 +1,7 @@
 <template>
     <div class="jobView">
         <div class="ui relaxed stackable grid container">
-            <div class="ui column" :class="[($mq !== 'tablet') ? 'four wide' : 'ten wide']"">
+            <div class="ui column" :class="[($mq !== 'tablet') ? 'four wide' : 'ten wide']">
                 <div class="ui secondary pointing menu" :class="[($mq !== 'tablet') && 'vertical']">
                     <a 
                         class="item white" 
@@ -18,7 +18,15 @@
             <div class="ui eight wide column grid">
                 <h2 class="ui header white verticalMargin0">{{selectedJob.position}}</h2>
                     <div class="verticalMargin0">
-                        <h2 class="ui medium white header verticalMargin0">{{selectedJob.company}}, 
+                        <h2 class="ui medium white header verticalMargin0 jobCompany">
+                            <a 
+                                :href="selectedJob.url" 
+                                target="_blank" 
+                                rel="noopener"
+                                :title="selectedJob.company" 
+                            >
+                                {{selectedJob.company}}
+                            </a>, 
                             <span class="jobDates">{{selectedJob.dates}}</span></h2> 
                     </div>
             <div class="ui row">
@@ -142,9 +150,14 @@ export default {
 
     }
 
-    .jobMeta {
-        // vertical-align: text-bottom;
-        display: block;
+    .jobCompany {
+        a {
+            color: white;
+        }
+
+        a:hover {
+           text-decoration: underline !important;
+        }
     }
 
     .jobDates {
