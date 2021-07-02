@@ -191,8 +191,6 @@ export default {
                 tracking: false,
                 thresholdDistance: 100,
                 thresholdTime: 300,
-                // loop:true,
-                // infinite: 4,
                 slidesToScroll: 1,
                 // direction: //(this.$mq === 'mobile') ? 'vertical':'horizontal'
             },

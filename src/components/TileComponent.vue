@@ -154,9 +154,9 @@ export default {
         width: 90%;
     }
 
-    .banner {
-        overflow-y: scroll;
-    }
+    // .banner {
+    //     overflow-y: scroll;
+    // }
 
     .tileContent {
         display: block;
