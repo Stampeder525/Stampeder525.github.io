@@ -11,7 +11,8 @@
                 <div 
                     class="ui secondary pointing menu" 
                     :class="$mq | mq({ 
-                        mobile: 'vertical'
+                        mobile: 'horizontal',
+                        laptop: 'vertical'
                     })">
                     <a 
                         class="item white" 
@@ -126,6 +127,8 @@ export default {
     .menu, .active {
         border-left-style: none;
         border-left-width: 0px;
+        border-right: none !important;
+
 
         :active {
             border-left-style: none;
@@ -181,7 +184,7 @@ export default {
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     #work {
         // .grid {
         //     margin: 0 1 !important;

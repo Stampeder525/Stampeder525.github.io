@@ -234,7 +234,8 @@ export default {
 }
 
 .skillBorder {
-    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-left: none;
 }
 
 .hvr-float {
@@ -269,6 +270,11 @@ p{
     .ui.relaxed.grid.container {
         width: 98% !important;
         margin: 0 !important;
+    }
+
+    .skillBorder {
+        border-top: none;
+        border-left: 3px solid white;
     }
 }
 
