@@ -30,7 +30,11 @@
             <div class="credits">
               <p class="footerText">Site Artwork by 
                 <a 
-                  class="hvr-float"
+                  :class="$mq | mq({ 
+                        mobile: '',
+                        tablet: '',
+                        laptop: 'hvr-float',
+                    })"
                   tabindex="0" 
                   target="_blank" 
                   rel="noopener" 
@@ -43,8 +47,7 @@
             <i 
               class="profileLinks" 
               :class="$mq | mq({ 
-                        mobile: 'icons',
-                        tablet: 'big icons',
+                        mobile: 'big icons',
                         laptop: 'huge icons',
                     })"
             >
@@ -56,6 +59,11 @@
                 rel="noopener" 
                 alt="Github"
                 title="Github"
+                :class="$mq | mq({ 
+                        mobile: '',
+                        tablet: '',
+                        laptop: 'hvr-float',
+                    })"
               >
                 <i class="fab fa-github"/>
               </a>
@@ -67,6 +75,11 @@
                 rel="noopener" 
                 alt="Linkedin"
                 title="Linkedin"
+                :class="$mq | mq({ 
+                        mobile: '',
+                        tablet: '',
+                        laptop: 'hvr-float',
+                    })"
                 >
                   <i class="fab fa-linkedin"/>
                 </a>
@@ -78,6 +91,11 @@
                   rel="noopener" 
                   alt="Itch.io"
                   title="Itch.io"
+                  :class="$mq | mq({ 
+                        mobile: '',
+                        tablet: '',
+                        laptop: 'hvr-float',
+                    })"
                 >
                   <i class="fab fa-itch-io"/>
                 </a>
@@ -314,10 +332,11 @@ footer {
     }
 
     .profileLinks:hover {
-      background-color: rgba(155, 155, 155, 1);
+      // background-color: rgba(155, 155, 155, 1);
 
       i {
         color: white;
+        text-shadow: 0 0 2px lightblue;
       }
       i:hover {
         color: #4183c4;
