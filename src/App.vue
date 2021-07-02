@@ -28,7 +28,17 @@
     <!-- <h2 style="color:white; position:absolute; left:33%; top:36%;">Loren Heubert-Aubry</h2> -->
     <footer>
             <div class="credits">
-              <p class="footerText">Site Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/wyervanart">Anna Ferguson</a></p>
+              <p class="footerText">Site Artwork by 
+                <a 
+                  class="hvr-float"
+                  tabindex="0" 
+                  target="_blank" 
+                  rel="noopener" 
+                  href="https://wyervan.wixsite.com/wyervanart"
+                >
+                  Anna Ferguson
+                </a>
+              </p>
             </div>
             <i 
               class="profileLinks" 
@@ -259,8 +269,6 @@ footer {
     border-radius:10px;
     pointer-events: all !important;
     display: border-box;
-    // background-color: rgba(155, 155, 155, 0.5);
-
   }
 
   i {
@@ -325,6 +333,10 @@ footer {
       text-align: left;
       position: absolute;
       left: 2%;
+
+      a {
+        text-decoration: underline !important;
+      }
     }
 
     .credits:hover {
@@ -333,9 +345,6 @@ footer {
       -webkit-backdrop-filter: blur(10px); /* Chrome, Safari, Opera */
       -moz-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      a {
-        text-decoration: underline !important;
-      }
     }
 
     i {
