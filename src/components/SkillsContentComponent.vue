@@ -4,7 +4,7 @@
             <div class="ui twelve wide column">
                 <div class="ui label levelLegend" style="backgroundColor:#A3D585">Advanced</div>
                 <div class="ui label levelLegend" style="backgroundColor:#EED059">Intermediate</div>
-                <div class="ui label levelLegend" style="backgroundColor:#E26350">Novice</div>
+                <!-- <div class="ui label levelLegend" style="backgroundColor:#c0c0c0">Novice</div> -->
             </div>
         </div>
         <div class="ui two column row">
@@ -136,12 +136,12 @@ export default {
                 {
                     name: "Golang",
                     img: "/src/assets/images/logos/go_logo.png",
-                    level: "level1"
+                    level: "level2"
                 },
                 {
                     name: "Bash",
                     img: "/src/assets/images/logos/bash_logo.png",
-                    level: "level1"
+                    level: "level2"
                 },
             ],
             tools: [
@@ -153,7 +153,7 @@ export default {
                 {
                     name: "Unity",
                     img: "/src/assets/images/logos/unity_logo.png",
-                    level: "level2"
+                    level: "level3"
                 },
                 {
                     name: "Jenkins",
@@ -163,12 +163,12 @@ export default {
                 {
                     name: "AWS",
                     img: "/src/assets/images/logos/aws_logo.png",
-                    level: "level1"
+                    level: "level2"
                 },
                 {
                     name: "Kafka",
                     img: "/src/assets/images/logos/kafka_logo.png",
-                    level: "level1"
+                    level: "level2"
                 },
             ],
         }
@@ -195,7 +195,7 @@ export default {
     }
 
     .ui.row {
-        padding-top: 4% !important;
+        padding-top: 3% !important;
     }
 
     .section {
@@ -230,7 +230,7 @@ export default {
 }
 
 .level1 {
-    border-bottom: 3px solid #E26350;
+    border-bottom: 3px solid #c0c0c0;
 }
 
 .skillBorder {

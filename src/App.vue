@@ -25,20 +25,11 @@
             </tile-component>
       </div>
     </div>
-    <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
+    <!-- <h2 style="color:white; position:absolute; left:33%; top:36%;">Loren Heubert-Aubry</h2> -->
     <footer>
-        <!-- <div class="ui grid"> -->
-          <!-- <div 
-            class="ui column credits"
-            :class="$mq | mq({ 
-                        mobile: 'eight wide',
-                        laptop: 'six wide',
-                    })"
-          > -->
-            <div class="credits" style="padding-left:3%; padding-right:3%">
+            <div class="credits">
               <p class="footerText">Site Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/wyervanart">Anna Ferguson</a></p>
             </div>
-          <!-- </div> -->
             <i 
               class="profileLinks" 
               :class="$mq | mq({ 
@@ -81,7 +72,6 @@
                   <i class="fab fa-itch-io"/>
                 </a>
             </i>
-        <!-- </div> -->
     </footer>
   </div>
 </template>
@@ -109,7 +99,7 @@ export default {
             id: 0,
             name: "Who I am",
             url: "about",
-            color: "#188B8B",//"#134074",//"#4CAF50",
+            color: "#188B8B",
             img: "/src/assets/images/background/web2.png",
             alt: "/src/assets/images/background/web1.png",
             corner: "bannerTopLeft",
@@ -118,16 +108,16 @@ export default {
             id: 1,
             name: "What I've made",
             url: "projects",
-            color: "#0E3F77",//"#FF9800",
+            color: "#0E3F77",
             img: "/src/assets/images/background/cactus2.png",
             alt: "/src/assets/images/background/cactus1.png",
             corner: "bannerTopRight",
         },
         {
             id: 2,
-            name: "Where I work",
+            name: "Where I've worked",
             url: "work",
-            color: "#082649",//"#FF5252",
+            color: "#082649",
             img: "/src/assets/images/background/wave2.png",
             alt: "/src/assets/images/background/wave1.png",
             corner: "bannerBottomLeft",
@@ -136,7 +126,7 @@ export default {
             id: 3,
             name: "What I use",
             url: "tools",
-            color: "#0E3162",//"#3F51B5",
+            color: "#0E3162",
             img: "/src/assets/images/background/gems2.png",
             alt: "/src/assets/images/background/gems1.png",
             corner: "bannerBottomRight",

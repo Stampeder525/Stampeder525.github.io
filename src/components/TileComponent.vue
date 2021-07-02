@@ -7,9 +7,8 @@
     @mouseleave="resetBackground" 
     :style="{
         backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', 
-        backgroundColor: tileSelected ? color : 'transparent', 
+        backgroundColor: color, //tileSelected ? color : 'transparent', 
         cursor: tileSelected ? 'default':'pointer',
-        //boxShadow: '-10px -10px 10px ' + color
     }" 
     :class="{ tileDetails: tileSelected }"
 >
@@ -21,7 +20,7 @@
         <h1 class="title" :style="{ color: 'white'/*'tileSelected ? 'white' : color'*/ }">{{ name }}</h1>
         <div class="tileContent">
             <skills-content-component noselect v-if="name == 'What I use'"></skills-content-component>
-            <experience-content-component v-if="name == 'Where I work'"></experience-content-component>
+            <experience-content-component v-if="name == 'Where I\'ve worked'"></experience-content-component>
             <projects-content-component v-if="name == 'What I\'ve made'"></projects-content-component>
             <about-content-component v-if="name == 'Who I am'"></about-content-component>
         </div>
@@ -50,6 +49,7 @@ export default {
         return {
             tileSelected: false,
             tileImg: this.img,
+            gradientColor: ''
         }
     },
     methods: {
@@ -86,9 +86,11 @@ export default {
     position: absolute;
     width:100vw;
     height: 25vh;
-    // border: 1px solid white;
+    border: 1px solid #3A9AA6;
+    box-shadow: '1px 1px 3px #3A9AA6';
     background-size: cover;
     // background-size: 100px 100px;
+    mix-blend-mode: hard-light;//luminosity; //hard-light //multiply
     background-repeat:   no-repeat;
     background-position: center center;
 
@@ -97,7 +99,6 @@ export default {
     -o-transition: all 0.2s;
     transition: all 0.2s;
     overflow: hidden;
-
 
     .banner {
         position: absolute;
@@ -108,10 +109,12 @@ export default {
 
     .title {
         position: absolute;
+        z-index: 5;
         -webkit-transition: color 0.2s;
         -moz-transition:  color 0.2s;
         -o-transition:  color 0.2s;
         transition: color 0.2s;
+        mix-blend-mode: unset !important;//luminosity; //hard-light //multiply
         //text-shadow: 2px 2px 4px #000000;
     }
 
@@ -137,6 +140,7 @@ export default {
     width:100vw;
     height: 100vh;
     overflow-y: auto;
+    mix-blend-mode: normal;
     //border: none;
 
     -webkit-transition: all 0.2s;
@@ -294,15 +298,22 @@ export default {
 
     }
 
+    
+    // .banner .title.tileDetails {
+    //     top: 0 !important;
+    //     left: 0 !important;
+    // }
+
     .bannerTopLeft {
         left: 0;
         top: 0;
         .banner .title{
             padding: 1.5%;
-            right: 0;
+            right: 5%;
             bottom: 0;
             text-align: right;
         }
+
 
         .tileContent {
             top: 10%;
@@ -323,7 +334,7 @@ export default {
         top: 0;
         .banner .title{
             padding: 1.5%;
-            left: 0;
+            left: 5%;
             bottom: 0;
             text-align: left;
         }
@@ -348,7 +359,7 @@ export default {
         top: 50%;
         .banner .title{
             padding: 1.5%;
-            right: 0;
+            right: 5%;
             top: 0;
             text-align: right;
             width: 100%;
@@ -373,7 +384,7 @@ export default {
         top: 50%;
         .banner .title{
             padding: 1.5%;
-            left: 0;
+            left: 5%;
             top: 0;
             text-align: left;
         }   
