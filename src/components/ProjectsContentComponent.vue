@@ -221,8 +221,8 @@ export default {
 }
 
 .projectCard {
-    width: 31.5% !important; //23.5
-    margin-right: 2% !important;
+    width: 100% !important;
+    margin-right: 0;
     text-align: left;
 }
 
@@ -292,6 +292,12 @@ a {
         .row {
             height: 100%;
         }
+    }
+
+    .projectCard {
+        width: 31.5% !important; //23.5
+        margin-right: 2% !important;
+        text-align: left;
     }
 }
 

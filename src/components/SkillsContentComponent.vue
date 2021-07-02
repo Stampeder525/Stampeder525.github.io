@@ -261,10 +261,6 @@ p{
     font-size: 12px;
 }
 
-.ui.grid .ui.stackable.grid, .ui.segment:not(.vertical) .ui.stackable.page.grid {
-    margin: 0 1em !important;
-}
-
 
 @media (min-width: 900px){ 
     .ui.relaxed.grid.container {
