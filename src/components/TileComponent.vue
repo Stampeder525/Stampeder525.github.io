@@ -85,7 +85,7 @@ export default {
     z-index: 0;
     position: absolute;
     width:100vw;
-    height: 25vh;
+    height: 25%;
     border: 1px solid #3A9AA6;
     box-shadow: '1px 1px 3px #3A9AA6';
     background-size: cover;
@@ -141,6 +141,7 @@ export default {
     height: 100vh;
     overflow-y: auto;
     mix-blend-mode: normal;
+    border: none;
     //border: none;
 
     -webkit-transition: all 0.2s;
@@ -243,7 +244,7 @@ export default {
         z-index: 0;
         position: absolute;
         width: 50vw;
-        height: 50vh;
+        height: 50%;
 
         .banner {
             position: absolute;
@@ -269,7 +270,7 @@ export default {
         top: 0 !important;
         left: 0 !important;
         width:100vw;
-        height: 100vh;
+        height: 100%;
         overflow-y: hidden;
 
         -webkit-transition: all 0.2s;
