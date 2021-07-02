@@ -1,5 +1,5 @@
 <template>
-    <div class="ui grid container projectContainer">
+    <div class="ui relaxed grid container projectContainer">
         <slider ref="slider" :options="options">
             <slideritem height="40vh" v-for="(p, index) in projects" :key="index" class="projectCard">
                 <div class="ui card"  @click.stop>
