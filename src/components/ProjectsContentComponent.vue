@@ -272,10 +272,14 @@ a {
 }
 
 .projectContainer {
-        width: 100%;
-        margin: 2em auto;
-        height: 65vh;
-    }
+    width: 100%;
+    margin: 2em auto;
+    height: 65vh;
+}
+
+.slider-pagination-bullet {
+    background-color: #dad6d6 !important;
+}
 
 @media (min-width: 900px) {
     .ui .card {

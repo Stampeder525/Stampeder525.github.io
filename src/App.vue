@@ -27,26 +27,18 @@
     </div>
     <!-- <h2 style="color:black; position:absolute; left:33%; top:35%;">Loren Heubert-Aubry</h2> -->
     <footer>
-        <div class="ui grid">
-          <div 
-            class="ui left floated column credits"
+        <!-- <div class="ui grid"> -->
+          <!-- <div 
+            class="ui column credits"
             :class="$mq | mq({ 
                         mobile: 'eight wide',
-                        laptop: 'five wide',
+                        laptop: 'six wide',
                     })"
-          >
-            <div style="padding-left:3%; padding-right:3%">
-              <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
-              <p class="footerText">Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/wyervanart">Anna Ferguson</a></p>
+          > -->
+            <div class="credits" style="padding-left:3%; padding-right:3%">
+              <p class="footerText">Site Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/wyervanart">Anna Ferguson</a></p>
             </div>
-          </div>
-          <div 
-            class="ui right floated column"
-            :class="$mq | mq({ 
-                        mobile: 'eight wide',
-                        laptop: 'four wide',
-                    })"
-          >
+          <!-- </div> -->
             <i 
               class="profileLinks" 
               :class="$mq | mq({ 
@@ -89,8 +81,7 @@
                   <i class="fab fa-itch-io"/>
                 </a>
             </i>
-          </div>
-        </div>
+        <!-- </div> -->
     </footer>
   </div>
 </template>
@@ -118,7 +109,7 @@ export default {
             id: 0,
             name: "Who I am",
             url: "about",
-            color: "#4CAF50",
+            color: "#188B8B",//"#134074",//"#4CAF50",
             img: "/src/assets/images/background/web2.png",
             alt: "/src/assets/images/background/web1.png",
             corner: "bannerTopLeft",
@@ -127,7 +118,7 @@ export default {
             id: 1,
             name: "What I've made",
             url: "projects",
-            color: "#FF9800",
+            color: "#0E3F77",//"#FF9800",
             img: "/src/assets/images/background/cactus2.png",
             alt: "/src/assets/images/background/cactus1.png",
             corner: "bannerTopRight",
@@ -136,7 +127,7 @@ export default {
             id: 2,
             name: "Where I work",
             url: "work",
-            color: "#FF5252",
+            color: "#082649",//"#FF5252",
             img: "/src/assets/images/background/wave2.png",
             alt: "/src/assets/images/background/wave1.png",
             corner: "bannerBottomLeft",
@@ -145,7 +136,7 @@ export default {
             id: 3,
             name: "What I use",
             url: "tools",
-            color: "#3F51B5",
+            color: "#0E3162",//"#3F51B5",
             img: "/src/assets/images/background/gems2.png",
             alt: "/src/assets/images/background/gems1.png",
             corner: "bannerBottomRight",
@@ -178,8 +169,8 @@ export default {
 }
 
 body {
-    background-image: url("assets/images/background/dust_scratches.jpg");
-    // background-color: black;
+    // background-image: url("assets/images/background/dust_scratches.jpg");
+    background: radial-gradient(#188B8B, #0E3162); //#0e3f77d5;
     overflow-x: hidden;
 }
 
@@ -244,11 +235,13 @@ footer {
   bottom: 3%;
   pointer-events: none;
   padding: 2em;
+  display: flex;
+  justify-content: center;
 
   .profileLinks {
     text-align: right;
-    right: 26%;
-    position:absolute;
+    margin: auto;
+    z-index: 5;
     padding: 0.1em;
     border-radius:10px;
     pointer-events: all !important;
@@ -271,11 +264,12 @@ footer {
   .credits {
     text-align: left;
     position: absolute;
+    width: 30%;
     left: 8%;
     border-radius:10px;
     pointer-events: all !important;
     display: border-box;
-    background-color: rgba(155, 155, 155, 0.5);
+    // background-color: rgba(155, 155, 155, 0.5);
 
   }
 
@@ -291,13 +285,16 @@ footer {
 @media (min-width: 900px) {
 
   .footerText {
-    color: black;
+    color: white;
     font-size: 1.5em;
     font-family: 'Open Sans', sans-serif !important;
     font-weight: 0 !important;
 
     a {
-      color: black;
+      color: white;
+      :hover {
+        text-decoration: underline !important;
+      }
     }
   }
 
@@ -305,13 +302,13 @@ footer {
     position: absolute;
     height: 5em;
     width: 100%;
-    bottom: 3%;
+    bottom: 5%;
 
     .profileLinks {
       background-color: rgba(155, 155, 155, 0.5);
       text-align: right;
-      position: absolute;
-      right: 10%;
+      // position: absolute;
+      // right: 10%;
 
       i {
         color: white;
@@ -334,10 +331,10 @@ footer {
     }
 
     .credits {
-      background-color: rgba(244, 244, 244, 0.5);
+      // background-color: rgba(244, 244, 244, 0.5);
       text-align: left;
       position: absolute;
-      left: 3%;
+      left: 2%;
     }
 
     .credits:hover {
@@ -346,8 +343,8 @@ footer {
       -webkit-backdrop-filter: blur(10px); /* Chrome, Safari, Opera */
       -moz-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      .footerText, a {
-        color: black;
+      a {
+        text-decoration: underline !important;
       }
     }
 

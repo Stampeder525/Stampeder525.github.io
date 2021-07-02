@@ -8,8 +8,9 @@
     :style="{
         backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', 
         backgroundColor: tileSelected ? color : 'transparent', 
-        cursor: tileSelected ? 'default':'pointer'
-        }" 
+        cursor: tileSelected ? 'default':'pointer',
+        //boxShadow: '-10px -10px 10px ' + color
+    }" 
     :class="{ tileDetails: tileSelected }"
 >
     <div class="backButton" :class="[($mq === 'tablet') ? '':'hvr-float']" v-if="tileSelected" @click="shrinkTile()">
@@ -17,7 +18,7 @@
         <p>Back</p>
     </div>
     <div class="banner" @click="expandTile()">
-        <h1 class="title" :style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
+        <h1 class="title" :style="{ color: 'white'/*'tileSelected ? 'white' : color'*/ }">{{ name }}</h1>
         <div class="tileContent">
             <skills-content-component noselect v-if="name == 'What I use'"></skills-content-component>
             <experience-content-component v-if="name == 'Where I work'"></experience-content-component>
@@ -48,7 +49,7 @@ export default {
     data () {
         return {
             tileSelected: false,
-            tileImg: this.img
+            tileImg: this.img,
         }
     },
     methods: {
@@ -85,7 +86,7 @@ export default {
     position: absolute;
     width:100vw;
     height: 25vh;
-    // border: 2em solid;
+    // border: 1px solid white;
     background-size: cover;
     // background-size: 100px 100px;
     background-repeat:   no-repeat;
@@ -96,6 +97,7 @@ export default {
     -o-transition: all 0.2s;
     transition: all 0.2s;
     overflow: hidden;
+
 
     .banner {
         position: absolute;
@@ -178,7 +180,7 @@ export default {
 
 .bannerTopLeft {
     left: auto;
-    top: 1%;
+    top: 0;
     .banner .title{
         width: 100%;
         text-align: center;
@@ -191,7 +193,7 @@ export default {
 
 .bannerTopRight {
     left: auto;
-    top: 26%;
+    top: 25%;
     .banner .title{
         width: 100%;
         text-align: center;
@@ -204,7 +206,7 @@ export default {
 
 .bannerBottomLeft {
     left: auto;
-    top: 51%;
+    top: 50%;
     .banner .title{
         :not(.tileDetails) {
             width: 100%;
@@ -219,7 +221,7 @@ export default {
 
 .bannerBottomRight {
     left: auto;
-    top: 76%;
+    top: 75%;
     .banner .title{
         width: 100%;
         text-align: center;
@@ -230,18 +232,14 @@ export default {
     } 
 }
 
-// .ui.grid > * {
-//     padding: 0 !important;
-// }
-
 
 @media (min-width: 900px) {
 
     .tile {
         z-index: 0;
         position: absolute;
-        width: 49vw;
-        height: 49vh;
+        width: 50vw;
+        height: 50vh;
 
         .banner {
             position: absolute;
@@ -268,6 +266,7 @@ export default {
         left: 0 !important;
         width:100vw;
         height: 100vh;
+        overflow-y: hidden;
 
         -webkit-transition: all 0.2s;
         -moz-transition: all 0.2s;
@@ -296,8 +295,8 @@ export default {
     }
 
     .bannerTopLeft {
-        left: 0.5%;
-        top: 0.5%;
+        left: 0;
+        top: 0;
         .banner .title{
             padding: 1.5%;
             right: 0;
@@ -320,8 +319,8 @@ export default {
     }
 
     .bannerTopRight {
-        left: 50.5%;
-        top: 0.5%;
+        left: 50%;
+        top: 0;
         .banner .title{
             padding: 1.5%;
             left: 0;
@@ -345,8 +344,8 @@ export default {
     }
 
     .bannerBottomLeft {
-        left: 0.5%;
-        top: 50.5%;
+        left: 0;
+        top: 50%;
         .banner .title{
             padding: 1.5%;
             right: 0;
@@ -370,8 +369,8 @@ export default {
     }
 
     .bannerBottomRight {
-        left: 50.5%;
-        top: 50.5%;
+        left: 50%;
+        top: 50%;
         .banner .title{
             padding: 1.5%;
             left: 0;

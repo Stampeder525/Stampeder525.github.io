@@ -1,7 +1,7 @@
 <template>
     <div class="ui relaxed left aligned padded stackable grid container">
         <div class="ui one column row">
-            <div class="ui four wide column">
+            <div class="ui twelve wide column">
                 <div class="ui label levelLegend" style="backgroundColor:#A3D585">Advanced</div>
                 <div class="ui label levelLegend" style="backgroundColor:#EED059">Intermediate</div>
                 <div class="ui label levelLegend" style="backgroundColor:#E26350">Novice</div>
