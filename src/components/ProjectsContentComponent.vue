@@ -1,7 +1,7 @@
 <template>
-    <div class="ui relaxed stackable grid container projectContainer">
-        <slider ref="slider" :options="options" :direction="$mq | mq({mobile: 'vertical', tablet: 'horizontal'})">
-            <slideritem v-for="(p, index) in projects" :key="index" class="projectCard">
+    <div class="ui grid container projectContainer">
+        <slider ref="slider" :options="options">
+            <slideritem height="40vh" v-for="(p, index) in projects" :key="index" class="projectCard">
                 <div class="ui card"  @click.stop>
                     <div class="image">
                         <div class="projectLinks">
@@ -41,6 +41,12 @@
                 </div>
             </slideritem>
         </slider>
+        <a @click="() => {this.$refs['slider'] && this.$refs['slider'].$emit('slidePre')}">
+            <i class="scrollLeft inverted huge angle left icon"/>
+        </a>
+        <a @click="() => {this.$refs['slider'] && this.$refs['slider'].$emit('slideNext')}">
+            <i class="scrollRight inverted huge angle right icon"/>
+        </a>
     </div>
 </template>
 
@@ -278,6 +284,29 @@ a {
 
 .slider-pagination-bullet {
     background-color: #dad6d6 !important;
+    height: 16px !important;
+    width: 16px !important;
+    bottom: 5px !important;
+}
+
+.slider-container {
+    width: 100% !important;
+}
+
+.scrollLeft {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.scrollRight {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    z-index: 5;
+    cursor: pointer;
 }
 
 @media (min-width: 900px) {
@@ -300,6 +329,26 @@ a {
         width: 23.5% !important; //23.5
         margin-right: 2% !important;
         text-align: left;
+    }
+
+    .slider-container {
+        width: 95% !important;
+    }
+
+    .scrollLeft {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        z-index: 5;
+        cursor: pointer;
+    }
+
+    .scrollRight {
+        position: absolute;
+        top: 35%;
+        right: 0;
+        z-index: 5;
+        cursor: pointer;
     }
 }
 
