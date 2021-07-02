@@ -32,6 +32,7 @@
                         rel="noopener" 
                         class="ui button"
                         title="Download Resume"
+                        style="margin-bottom:10px"
                     >
                         Resume
                     </a>

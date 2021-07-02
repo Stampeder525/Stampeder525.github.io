@@ -29,8 +29,11 @@
     <footer>
         <div class="ui grid">
           <div 
-            class="credits" 
-            :class="[($mq === 'tablet') ? 'ui left floated eight wide column' : 'ui left floated five wide column']"
+            class="ui left floated column credits"
+            :class="$mq | mq({ 
+                        mobile: 'eight wide',
+                        laptop: 'five wide',
+                    })"
           >
             <div style="padding-left:3%; padding-right:3%">
               <p class="footerText">Copyright © 2018 Loren Heubert-Aubry</p>
@@ -38,7 +41,13 @@
             </div>
           </div>
           <div class="ui right floated four wide column">
-            <i class="profileLinks" :class="[($mq === 'tablet') ? 'big icons' : 'huge icons']">
+            <i 
+              class="profileLinks" 
+              :class="$mq | mq({ 
+                        mobile: 'big icons',
+                        laptop: 'huge icons',
+                    })"
+            >
               <a 
                 tabindex="0" 
                 href="https://github.com/Stampeder525" 

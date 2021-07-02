@@ -1,8 +1,18 @@
 <template>
     <div class="jobView">
         <div class="ui relaxed stackable grid container">
-            <div class="ui column" :class="[($mq !== 'tablet') ? 'four wide' : 'ten wide']">
-                <div class="ui secondary pointing menu" :class="[($mq !== 'tablet') && 'vertical']">
+            <div 
+                class="ui column" 
+                :class="$mq | mq({ 
+                    mobile: 'ten wide', 
+                    laptop: 'four wide'
+                })"
+            >
+                <div 
+                    class="ui secondary pointing menu" 
+                    :class="$mq | mq({ 
+                        mobile: 'vertical'
+                    })">
                     <a 
                         class="item white" 
                         v-for="j in jobs" 
@@ -171,7 +181,7 @@ export default {
 }
 
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
     #work {
         // .grid {
         //     margin: 0 1 !important;
