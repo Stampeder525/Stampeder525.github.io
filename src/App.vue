@@ -40,11 +40,18 @@
               <p class="footerText">Artwork by <a tabindex="0" target="_blank" rel="noopener" href="https://wyervan.wixsite.com/wyervanart">Anna Ferguson</a></p>
             </div>
           </div>
-          <div class="ui right floated four wide column">
+          <div 
+            class="ui right floated column"
+            :class="$mq | mq({ 
+                        mobile: 'eight wide',
+                        laptop: 'four wide',
+                    })"
+          >
             <i 
               class="profileLinks" 
               :class="$mq | mq({ 
-                        mobile: 'big icons',
+                        mobile: 'icons',
+                        tablet: 'big icons',
                         laptop: 'huge icons',
                     })"
             >

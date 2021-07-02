@@ -1,8 +1,8 @@
 <template>
     <div class="ui relaxed stackable grid container projectContainer">
-        <slider ref="slider" :options="options">
+        <slider ref="slider" :options="options" :direction="$mq | mq({mobile: 'vertical', tablet: 'horizontal'})">
             <slideritem v-for="(p, index) in projects" :key="index" class="projectCard">
-                <div class="ui card"  v-on:click.stop>
+                <div class="ui card"  @click.stop>
                     <div class="image">
                         <div class="projectLinks">
                             <a 
@@ -191,9 +191,10 @@ export default {
                 tracking: false,
                 thresholdDistance: 100,
                 thresholdTime: 300,
-                // infinite: 3,
+                // loop:true,
+                // infinite: 4,
                 slidesToScroll: 1,
-                direction: (this.$mq === 'mobile') ? 'vertical':'horizontal'
+                // direction: //(this.$mq === 'mobile') ? 'vertical':'horizontal'
             },
         }
     },
@@ -295,7 +296,7 @@ a {
     }
 
     .projectCard {
-        width: 31.5% !important; //23.5
+        width: 23.5% !important; //23.5
         margin-right: 2% !important;
         text-align: left;
     }

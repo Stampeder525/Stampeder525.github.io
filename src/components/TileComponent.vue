@@ -1,12 +1,22 @@
 <!-- TileComponent.vue -->
 <template>
 
-<div class="tile" v-on:mouseenter="invertBackground" v-on:mouseleave="resetBackground" :style="{backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', backgroundColor: tileSelected ? color : 'transparent', cursor: tileSelected ? 'default':'pointer'}" :class="{ tileDetails: tileSelected }">
-    <div class="backButton" :class="[($mq === 'tablet') ? '':'hvr-float']" v-if="tileSelected" v-on:click="shrinkTile()">
+<div 
+    class="tile" 
+    @mouseenter="invertBackground" 
+    @mouseleave="resetBackground" 
+    :style="{
+        backgroundImage: tileSelected ? 'url()':'url('+ tileImg +')', 
+        backgroundColor: tileSelected ? color : 'transparent', 
+        cursor: tileSelected ? 'default':'pointer'
+        }" 
+    :class="{ tileDetails: tileSelected }"
+>
+    <div class="backButton" :class="[($mq === 'tablet') ? '':'hvr-float']" v-if="tileSelected" @click="shrinkTile()">
         <i class="ui big left arrow icon"></i>
         <p>Back</p>
     </div>
-    <div class="banner" v-on:click="expandTile()">
+    <div class="banner" @click="expandTile()">
         <h1 class="title" :style="{ color: tileSelected ? 'white' : color }">{{ name }}</h1>
         <div class="tileContent">
             <skills-content-component noselect v-if="name == 'What I use'"></skills-content-component>
@@ -14,11 +24,6 @@
             <projects-content-component v-if="name == 'What I\'ve made'"></projects-content-component>
             <about-content-component v-if="name == 'Who I am'"></about-content-component>
         </div>
-        <!-- <div v-if="tileSelected && $mq != 'sm'" class="footer">
-                <div class="helpMessage">
-                    <p class="footerText">Click anywhere to return</p>
-                </div>
-        </div> -->
     </div>
 </div>
 
@@ -90,11 +95,13 @@ export default {
     -moz-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;
+    overflow: hidden;
 
     .banner {
         position: absolute;
         height: 100%;
         width: 100%;
+        left: 0;
     }
 
     .title {
@@ -127,6 +134,7 @@ export default {
     left: 0 !important;
     width:100vw;
     height: 100vh;
+    overflow-y: auto;
     //border: none;
 
     -webkit-transition: all 0.2s;
@@ -143,6 +151,7 @@ export default {
         -moz-transition:  color 0.2s;
         -o-transition:  color 0.2s;
         transition: color 0.2s;
+        width: 90%;
     }
 
     .banner {
@@ -197,12 +206,14 @@ export default {
     left: auto;
     top: 51%;
     .banner .title{
-        width: 100%;
+        :not(.tileDetails) {
+            width: 100%;
+        }
         text-align: center;
     }
 
     .tileContent {
-        top: 10em;
+        top: 8em;
     }
 }
 
@@ -341,6 +352,7 @@ export default {
             right: 0;
             top: 0;
             text-align: right;
+            width: 100%;
         }
 
         .tileContent {
