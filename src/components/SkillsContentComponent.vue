@@ -21,7 +21,7 @@
                             :class="l.level"
                         >
                             <clazy-load :src="l.img">
-                                <img class="ui tiny rounded image" :src="l.img" @click.stop>
+                                <img :alt="l.name" class="ui tiny rounded image" :src="l.img" @click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ l.name }}</p>
@@ -44,7 +44,7 @@
                             :class="t.level"
                         >
                             <clazy-load :src="t.img">
-                                <img class="ui tiny rounded image" :src="t.img" @click.stop>
+                                <img :alt="l.name" class="ui tiny rounded image" :src="t.img" @click.stop>
                                 <div slot="placeholder"><i class="notched circle loading icon"></i></div>
                             </clazy-load>
                             <p class="name">{{ t.name }}</p>

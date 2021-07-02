@@ -2,7 +2,7 @@
     <div class="ui container">
         <clazy-load noselect :src="splashImg">
             <div noselect class="ui left floated image">
-                <img noselect class="splash" :src="splashImg">
+                <img noselect class="splash" :src="splashImg" alt="Me in the Mountains">
             </div>
             <div class="loader" slot="placeholder"><i class="notched circle loading icon"></i></div>
         </clazy-load>

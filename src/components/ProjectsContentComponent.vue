@@ -16,7 +16,7 @@
                                 <i class="linkIcon" :class="l.icon"></i>
                             </a>
                         </div>
-                        <img :src="p.img"/>
+                        <img :alt="l.name" :src="p.img"/>
                     </div>
                     <div class="content cardHeader">
                         <div>
