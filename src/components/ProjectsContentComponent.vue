@@ -16,7 +16,7 @@
                                 <i class="linkIcon" :class="l.icon"></i>
                             </a>
                         </div>
-                        <img :alt="l.name" :src="p.img"/>
+                        <img :alt="p.name" :src="p.img"/>
                     </div>
                     <div class="content cardHeader">
                         <div>
@@ -192,7 +192,6 @@ export default {
                 thresholdDistance: 100,
                 thresholdTime: 300,
                 slidesToScroll: 1,
-                // direction: //(this.$mq === 'mobile') ? 'vertical':'horizontal'
             },
         }
     },
