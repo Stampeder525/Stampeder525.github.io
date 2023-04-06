@@ -21,7 +21,7 @@
             </div>
             <div class="row aboutme">
                 <div class="ui right floated ten wide column">
-                    <p v-html="p" v-for="p in description" :key="p" @click.stop>{{ p }}</p>
+                    <p v-html="p" v-for="p in description" :key="p" @click.stop></p>
                 </div>
             </div>
             <div class="row contact">

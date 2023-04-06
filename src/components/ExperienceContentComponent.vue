@@ -67,20 +67,36 @@ export default {
             jobs: [
                 {
                     id: 0,
+                    company: "Foundation Medicine",
+                    url: "https://foundationmedicine.com/",
+                    position: "Software Engineer II",
+                    location: "Boston, MA",
+                    dates: "September 2021 - Present",
+                    description: ["Developing front-end features in React which enable data managers to prepare test result deliverables for patients in \
+                                    partner drug trials, as well as configure datapoints and templates for aggregating, formatting, and displaying trial data.", 
+                                    "Developing back-end API features and regression tests in C#, as well as automation tests using JUnit, allowing \
+                                    UI to query and receive data from multiple cross-departmental data sources. ", "Spearheading adoption of new accessibility \
+                                    standards for production-ready code in compliance with WCAG 2.1 through knowledge transfers, audits, and creation of sprint work to resolve accessibility tech debt.", 
+                                    "Writing stored procedures, modifying schemas, and resolving data errors in PRA database Leveraging MySQL.",
+                                    "Develop dynamically generated PDF reports for test case results using Contentful application. Acted as team \
+                                    resource for others seeking assistance and experience with the platform via knowledge transfers and documentation."]
+                },
+                {
+                    id: 1,
                     company: "Optum",
                     url: "https://www.optum.com/",
                     position: "Software Engineer",
                     location: "Boston, MA",
-                    dates: "June 2019 - Present",
-                    description: ["Develop front-end features and automated tests for online insurance plan testing platform in React, \
-                                    allowing readiness teams to prepare customers for peak season.", "Leading implementation of full \
+                    dates: "June 2019 - September 2021",
+                    description: ["Developed front-end features and automated tests for online insurance plan testing platform in React, \
+                                    allowing readiness teams to prepare customers for peak season.", "Lead implementation of full \
                                     accessibility audits on production-ready code throughout organization, targeting 100% compliance \
                                     with WCAG 2.0.", "Leveraged Golang to create early notification center server pipeline and API, \
                                     allowing customers to receive regular updates on the status of their testing members and plans.", 
                                     "Developed features for internal claims processing engine in Java, reducing feature time to deploy by 15%."]
                 },
                 {
-                    id: 1,
+                    id: 2,
                     company: "CHEPS",
                     url: "https://cheps.engin.umich.edu/",
                     position: "Software Engineer",
@@ -92,7 +108,7 @@ export default {
                     "Implemented design documentation plan and wrote project reports, reducing future onboarding time by over 90%."]
                 },
                 {
-                    id: 2,
+                    id: 3,
                     company: "Optum",
                     url: "https://www.optum.com/",
                     position: "Software Development Intern",
